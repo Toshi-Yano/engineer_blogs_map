@@ -7,8 +7,7 @@
         ABOUT
       = link_to "#", class: "header__contents__items" do
         SEARCH
-      = link_to "#", class: "header__contents__items" do
-        POST
+      = link_to "POST", new_blog_path, class: "header__contents__items"
       = link_to "MY PAGE", user_path(current_user), class: "header__contents__items"
       = link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "header__contents__items"
     - else
@@ -16,7 +15,5 @@
         ABOUT
       = link_to "#", class: "header__contents__items" do
         SEARCH
-      = link_to "#", class: "header__contents__items" do
-        POST
       = link_to "LOG IN", new_user_session_path, class: "header__contents__items"
       = link_to "SIGN UP", new_user_registration_path, class: "header__contents__items"

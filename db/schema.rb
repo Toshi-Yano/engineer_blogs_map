@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_123203) do
+ActiveRecord::Schema.define(version: 2020_04_14_120753) do
 
   create_table "blog_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "blog_id"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_123203) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", null: false
-    t.index ["category"], name: "index_categories_on_category"
+    t.string "name", null: false
+    t.index ["name"], name: "index_categories_on_name"
   end
 
   create_table "like_blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_123203) do
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "tag", null: false
-    t.index ["tag"], name: "index_tags_on_tag"
+    t.string "name", null: false
+    t.index ["name"], name: "index_tags_on_name"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

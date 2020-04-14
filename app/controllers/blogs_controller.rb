@@ -10,12 +10,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blogs_params)
+    Blog.create(blog_params)
   end
 
   private
-  def blogs_params
-    params.require(:blog).permit(:title, :url, :body)
+  def blog_params
+    params.require(:blog).permit(:title, :url, :body, :category_id, tag_ids: [] ).merge(user_id: current_user.id)
   end
 
   def move_to_index
