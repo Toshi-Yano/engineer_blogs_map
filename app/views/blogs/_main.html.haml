@@ -4,14 +4,26 @@
       %p.main__index__list--category 人気個人
       - @blogs.each do |blog|
         %li.main__index__list--title
-          = link_to blog.title, blog.url 
+          = link_to blog.title, blog.url
+        %li.main__index__list--tag
+          - blog.tags.each do |tag|
+            %p.main__index__list--tag--each
+              = tag.name
     %ul.main__index__list
       %p.main__index__list--category 人気企業
       - @blogs.each do |blog|
         %li.main__index__list--title
           = link_to blog.title, blog.url 
+        %li.main__index__list--tag
+          - blog.tags.each do |tag|
+            %p.main__index__list--tag--each
+              = tag.name
     %ul.main__index__list
       %p.main__index__list--category 新着
       - @blogs.each do |blog|
         %li.main__index__list--title
           = link_to blog.title, blog.url 
+        %li.main__index__list--tag
+          - blog.tags.each do |tag|
+            %p.main__index__list--tag--each
+              = tag.name
