@@ -1,0 +1,17 @@
+%section.main
+  .main__index
+    %ul.main__index__list
+      %p.main__index__list--category 人気個人
+      - @blogs.each do |blog|
+        %li.main__index__list--title
+          = link_to blog.title, blog.url 
+    %ul.main__index__list
+      %p.main__index__list--category 人気企業
+      - @blogs.each do |blog|
+        %li.main__index__list--title
+          = link_to blog.title, blog.url 
+    %ul.main__index__list
+      %p.main__index__list--category 新着
+      - @blogs.each do |blog|
+        %li.main__index__list--title
+          = link_to blog.title, blog.url 
