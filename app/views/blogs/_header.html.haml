@@ -9,8 +9,7 @@
         SEARCH
       = link_to "#", class: "header__contents__items" do
         POST
-      = link_to "#", class: "header__contents__items" do
-        MY PAGE
+      = link_to "MY PAGE", user_path(current_user), class: "header__contents__items"
       = link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "header__contents__items"
     - else
       = link_to "#", class: "header__contents__items" do

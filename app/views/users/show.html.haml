@@ -1,0 +1,44 @@
+= render "blogs/header"
+.user
+  .user__profile
+    %p.user__profile__name
+      = "#{@name}さんのプロフィール"
+    %p.user__profile__intro
+      = "#{@introduction}"
+    %p.user__profile__myblog
+      - if @blog.present?
+        = "#{@blog}"
+      - else
+        My Blogはありません
+    = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
+  .user__container
+    .user__container__blogs
+      %ul.user__container__blogs__person
+        個人ブログ
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+      %ul.user__container__blogs__company
+        企業ブログ
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+        %li each doeach doeach doeach do
+    %ul.user__container__reviews
+      レビュー
+      %li each doeach doeach doeach do
+      %li each doeach doeach doeach do
+      %li each doeach doeach doeach do
+      %li each doeach doeach doeach do
+      %li each doeach doeach doeach do
