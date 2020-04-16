@@ -152,8 +152,8 @@
   padding: 100px 30px 30px;
   display: flex;
   &__profile{
-    height: 500px;
-    width: 500px;
+    height: 100vh;
+    width: 30%;
     margin-right: 30px;
     &__name {
       text-align: center;
@@ -174,13 +174,14 @@
     }
   }
   &__container {
-    width: calc(100% - 500px);
+    width: calc(100% - 30%);
     display: flex;
     flex-direction: column;
     &__blogs {
-      height: 300px;
+      height: 60%;
       display: flex;
       justify-content: space-around;
+      overflow: scroll;
       &__person {
         font-size: 30px;
         text-align: center;
@@ -199,6 +200,7 @@
       }
     }
     &__reviews {
+      margin-top: 20px;
       font-size: 30px;
       text-align: center;
       li {

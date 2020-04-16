@@ -1,0 +1,14 @@
+%li.main__index__list--like
+- if user_signed_in?
+  - if blog.like_by?(current_user)
+    %li
+      お気に入り解除：
+      = link_to blog.like_blogs.count, like_blogs_path(blog), method: :delete
+  - else
+    %li
+      お気に入り登録：
+      = link_to blog.like_blogs.count, like_blogs_path(blog), method: :post
+- else
+  %li
+    お気に入り：
+    = blog.like_blogs.count

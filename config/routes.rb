@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root "blogs#index"
+  resources :blogs do
+    resources :reviews, only: [:create]
+  end
   resources :users, only: [:index, :show, :edit, :update]
-  resources :blogs, only: [:index, :new, :create]
+  resources :like_blogs, only: [:create, :destroy]
 end

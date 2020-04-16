@@ -7,20 +7,20 @@
       = link_to "ログアウト",destroy_user_session_path, method: :delete, class: 'btn'
       = link_to "トップページに戻る", :back, class: 'btn'
     .account-page__inner--right.user-form
-      = form_with(model: @blog, url: blogs_path, local: true) do |f|
+      = form_with(model: @blog, local: true) do |f|
         .field
           .field-label
-            = f.label :title
+            = f.label :name, "TITLE"
           .field-input
             = f.text_field :title
         .field
           .field-label
-            = f.label :url
+            = f.label :name, "URL"
           .field-input
-            = f.text_field :url
+            = f.url_field :url
         .field
           .field-label
-            = f.label :body
+            = f.label :紹介文
           .field-input
             = f.text_area :body
         .field
