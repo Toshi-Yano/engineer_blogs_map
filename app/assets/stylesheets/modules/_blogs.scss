@@ -65,6 +65,7 @@ header {
       margin: 20px;
       display: flex;
       flex-direction: column;
+      overflow: scroll;
       &--category {
         margin-bottom: 15px;
         font-size: 30px;
@@ -81,7 +82,7 @@ header {
       }
       &--tag {
         font-size: 3px;
-        &--each {
+        &--partial {
           display: inline-block;
           background-color: rgb(245, 245, 81);
           padding: 3px;

@@ -7,8 +7,12 @@
           = link_to blog.title, blog.url
         %li.main__index__list--tag
           - blog.tags.each do |tag|
-            %p.main__index__list--tag--each
+            %p.main__index__list--tag--partial
               = tag.name
+          = render partial: "like_blogs/like_blog", locals: { blog: blog }
+          %li コメント
+          %li
+            = link_to "詳細", blog_path(blog.id)
     %ul.main__index__list
       %p.main__index__list--category 人気企業
       - @blogs.each do |blog|

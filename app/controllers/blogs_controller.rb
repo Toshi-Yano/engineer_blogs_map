@@ -2,7 +2,8 @@ class BlogsController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @blogs = Blog.includes(:user, :category)
+    @blogs = Blog.includes(:user, :category, :tags)
+    # @sorted_blogs = @blogs.limit(5).order("count(@blogs.like_blogs.user) DESC")
   end
 
   def new
@@ -11,6 +12,27 @@ class BlogsController < ApplicationController
 
   def create
     Blog.create(blog_params)
+    redirect_to root_path
+  end
+
+  def show
+    @blog = Blog.find(params[:id])
+  end
+
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    blog = Blog.find(params[:id])
+    blog.update(blog_params)
+    redirect_to blog_path(blog.id)
+  end
+
+  def destroy
+    blog = Blog.find(params[:id])
+    blog.destroy
+    redirect_to root_path
   end
 
   private

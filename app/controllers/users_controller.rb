@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   def show
-    user = User.find(params[:id])
-    @name = user.name
-    @introduction = user.introduction
-    @myblog = user.myblog
+    @user = User.find(params[:id])
+    @blogs = Blog.includes(:user, :category, :tags)
   end
 
   def edit
