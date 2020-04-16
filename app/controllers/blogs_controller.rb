@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
+  before_action :set_blogs, only: [:show, :edit]
 
   def index
     @blogs = Blog.includes(:user, :category, :tags)
@@ -16,11 +17,11 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @review = Review.new
+    @reviews = @blog.reviews.includes(:user)
   end
 
   def edit
-    @blog = Blog.find(params[:id])
   end
 
   def update
@@ -38,6 +39,10 @@ class BlogsController < ApplicationController
   private
   def blog_params
     params.require(:blog).permit(:title, :url, :body, :category_id, tag_ids: [] ).merge(user_id: current_user.id)
+  end
+
+  def set_blogs
+    @blog = Blog.find(params[:id])
   end
 
   def move_to_index

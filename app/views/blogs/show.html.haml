@@ -1,8 +1,12 @@
+-# = render "header"
 = @blog.title
 登録ユーザー名or保持ユーザー名
 編集
 = link_to "編集", edit_blog_path(@blog.id)
 = link_to "削除", blog_path(@blog.id), method: :delete
+= form_with(model: [@blog, @review], local: true) do |f|
+  = f.text_area :body, autofocus: true
+  = f.submit "投稿"
 
 お気に入りユーザー一覧
 レビュー一覧
