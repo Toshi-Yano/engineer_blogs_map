@@ -3,8 +3,10 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:show, :edit]
 
   def index
-    @blogs = Blog.includes(:user, :category, :tags)
-    # @sorted_blogs = @blogs.limit(5).order("count(@blogs.like_blogs.user) DESC")
+    # @blogs = Blog.includes(:user, :category, :tags)
+    @person_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("like_blogs.user_id DESC").where(category_id: "1").limit(10)
+    @campany_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("like_blogs.user_id DESC").where(category_id: "2").limit(10)
+    @new_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("created_at DESC").limit(10)
   end
 
   def new

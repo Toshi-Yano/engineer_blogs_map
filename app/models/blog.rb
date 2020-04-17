@@ -14,8 +14,4 @@ class Blog < ApplicationRecord
   def like_by?(user)
     like_blogs.where(user_id: user.id).exists?
   end
-
-  def sort_blogs_in_DESC
-    @sorted_blogs = @blogs.includes(:user, :category).limit(5).order("count(blog.like_blogs.user) DESC")
-  end
 end
