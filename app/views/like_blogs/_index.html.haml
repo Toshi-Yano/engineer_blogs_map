@@ -5,7 +5,7 @@
       = link_to blog.like_blogs.count, like_blog_path(blog), method: :delete
     - else
       お気に入り登録：
-      = link_to blog.like_blogs.count, like_blog_path(blog), method: :post
+      = link_to blog.like_blogs.count, like_blogs_path(blog), method: :post
   - else
     お気に入り：
     = blog.like_blogs.count

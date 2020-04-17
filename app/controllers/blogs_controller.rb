@@ -4,7 +4,8 @@ class BlogsController < ApplicationController
 
   def index
     # @blogs = Blog.includes(:user, :category, :tags)
-    @person_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("like_blogs.user_id DESC").where(category_id: "1").limit(10)
+    @person_blogs = Blog.joins(:like_blogs).group(:user_id).order("count(user_id) DESC")
+    # @person_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("like_blogs.user_id DESC").where(category_id: "1").limit(10)
     @campany_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("like_blogs.user_id DESC").where(category_id: "2").limit(10)
     @new_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("created_at DESC").limit(10)
   end
