@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @blog = Blog.where(url: @user.myblog)
   end
 
   def update
