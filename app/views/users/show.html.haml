@@ -7,9 +7,7 @@
       = simple_format @user.introduction
     %p.user__profile__myblog
       - if @user.blog_id.present?
-        ※登録したブログが全て表示されるため、owner_id追加要
-        - @user.blogs.each do |a|
-          = a.title
+        = @user.blog.title
       - else
         My Blogはありません
     = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
@@ -24,8 +22,10 @@
             - blog.tags.each do |tag|
               %p.user__container__blogs__person--tag--each
                 = tag.name
-          %li.user__container__blogs__person--like
-            = blog.like_blogs.count
+          %li.main__index__list--function
+            = render partial: "like_blogs/index", locals: { blog: blog }
+            %p.main__index__list--function--details
+              = link_to "詳細", blog_path(blog.id)
       %ul.user__container__blogs__person
         企業ブログ
         - @blogs.each do |blog|
@@ -35,8 +35,10 @@
             - blog.tags.each do |tag|
               %p.user__container__blogs__person--tag--each
                 = tag.name
-          %li.user__container__blogs__person--like
-            = blog.like_blogs.count
+          %li.main__index__list--function
+            = render partial: "like_blogs/index", locals: { blog: blog }
+            %p.main__index__list--function--details
+              = link_to "詳細", blog_path(blog.id)
     %ul.user__container__reviews
       レビュー
       %li each doeach doeach doeach do

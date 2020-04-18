@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_120753) do
+ActiveRecord::Schema.define(version: 2020_04_17_220010) do
 
   create_table "blog_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "blog_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_120753) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "category_id"
+    t.integer "owner_id"
     t.index ["category_id"], name: "index_blogs_on_category_id"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
@@ -37,13 +38,13 @@ ActiveRecord::Schema.define(version: 2020_04_14_120753) do
   end
 
   create_table "like_blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "like_user_id"
     t.bigint "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blog_id"], name: "index_like_blogs_on_blog_id"
-    t.index ["user_id", "blog_id"], name: "index_like_blogs_on_user_id_and_blog_id", unique: true
-    t.index ["user_id"], name: "index_like_blogs_on_user_id"
+    t.index ["like_user_id", "blog_id"], name: "index_like_blogs_on_like_user_id_and_blog_id", unique: true
+    t.index ["like_user_id"], name: "index_like_blogs_on_like_user_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_120753) do
   add_foreign_key "blog_tags", "tags"
   add_foreign_key "blogs", "categories"
   add_foreign_key "like_blogs", "blogs"
-  add_foreign_key "like_blogs", "users"
+  add_foreign_key "like_blogs", "users", column: "like_user_id"
   add_foreign_key "reviews", "blogs"
   add_foreign_key "reviews", "users"
 end

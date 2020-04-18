@@ -2,32 +2,45 @@
   .main__index
     %ul.main__index__list
       %p.main__index__list--category 人気個人
-      - @blogs.each do |blog|
+      - @person_blogs.each_with_index do |blog, rank|
         %li.main__index__list--title
+          %span.main__index__list--title--rank
+            = "#{rank + 1}位\b"
           = link_to blog.title, blog.url
         %li.main__index__list--tag
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
-          = render partial: "like_blogs/like_blog", locals: { blog: blog }
-          %li コメント
-          %li
+        %li.main__index__list--function
+          = render partial: "like_blogs/index", locals: { blog: blog }
+          %p.main__index__list--function--details
             = link_to "詳細", blog_path(blog.id)
     %ul.main__index__list
       %p.main__index__list--category 人気企業
-      - @blogs.each do |blog|
+      - @campany_blogs.each_with_index do |blog, rank|
         %li.main__index__list--title
-          = link_to blog.title, blog.url 
+          %span.main__index__list--title--rank
+            = "#{rank + 1}位\b"
+          = link_to blog.title, blog.url
         %li.main__index__list--tag
           - blog.tags.each do |tag|
-            %p.main__index__list--tag--each
+            %p.main__index__list--tag--partial
               = tag.name
+        %li.main__index__list--function
+          = render partial: "like_blogs/index", locals: { blog: blog }
+          %p.main__index__list--function--details
+            = link_to "詳細", blog_path(blog.id)
     %ul.main__index__list
       %p.main__index__list--category 新着
-      - @blogs.each do |blog|
+      - @new_blogs.each do |blog|
         %li.main__index__list--title
-          = link_to blog.title, blog.url 
+          %span.main__index__list--title--rank
+          = link_to blog.title, blog.url
         %li.main__index__list--tag
           - blog.tags.each do |tag|
-            %p.main__index__list--tag--each
+            %p.main__index__list--tag--partial
               = tag.name
+        %li.main__index__list--function
+          = render partial: "like_blogs/index", locals: { blog: blog }
+          %p.main__index__list--function--details
+            = link_to "詳細", blog_path(blog.id)

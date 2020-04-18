@@ -1,3 +1,7 @@
+html {
+  background-color: rgb(252, 252, 237);
+}
+
 header {
   height: 70px;
   width: 100%;
@@ -59,9 +63,11 @@ header {
   border-bottom:  1px solid rgb(88, 84, 84);
   &__index {
     height: 500px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     &__list {
+      width: calc(100% / 3);
       margin: 20px;
       display: flex;
       flex-direction: column;
@@ -75,6 +81,9 @@ header {
         font-size: 15px;
         margin-top: 10px;
         text-align: start;
+        &--rank {
+          font-weight: bold;
+        }
         a {
           text-decoration: none;
           color: black;
@@ -88,6 +97,10 @@ header {
           padding: 3px;
           border-radius: 10px;
         }
+      }
+      &--function {
+        display: flex;
+        justify-content: space-between;
       }
     }
   }
