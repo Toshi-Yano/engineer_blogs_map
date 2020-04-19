@@ -7,7 +7,7 @@
       = simple_format @user.introduction
     %p.user__profile__myblog
       - if @user.blog_id.present?
-        = @user.blog.title
+        = @blog.title
       - else
         My Blogはありません
     = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"

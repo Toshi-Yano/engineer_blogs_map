@@ -28,16 +28,17 @@ class BlogsController < ApplicationController
 
   def edit
     @blog = Blog.find(params[:id])
-    @user = User.find_by(id: current_user.id)
+    # @user = User.find_by(id: current_user.id)
     # @blog.build_user
     # binding.pry
   end
 
   def update
-    @blog = Blog.find(params[:id])
+    blog = Blog.find(params[:id])
+    blog.update(blog_params)
     # @blog.build_user
     # @user.update!(update_params)
-    @blog.update!(update_params)
+    # @blog.update!(update_params)
     # @user = User.find_by(id: current_user.id)
     # @user.update!(update_params_user)
     # binding.pry
@@ -48,7 +49,7 @@ class BlogsController < ApplicationController
     # user.build_blog_id
     # binding.pry
     # user.update(blog_params)
-    redirect_to blog_path(@blog.id)
+    redirect_to blog_path(blog.id)
   end
 
   def destroy

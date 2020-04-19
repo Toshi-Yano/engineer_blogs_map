@@ -1,12 +1,11 @@
 class Blog < ApplicationRecord
   # attr_accessor :user_attributes
 
-  has_one :user
-  accepts_nested_attributes_for :user
+  belongs_to :user
   belongs_to :category
 
   has_many :blog_tags
-  has_many :tags, through: :blog_tags
+  has_many :tags, through: :blog_tags, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :like_blogs, dependent: :destroy
 
