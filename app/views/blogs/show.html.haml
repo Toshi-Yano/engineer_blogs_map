@@ -1,12 +1,17 @@
 -# = render "header"
 = @blog.title
+= @blog.body
 登録ユーザー名or保持ユーザー名
 編集
-= link_to "編集", edit_blog_path(@blog.id)
-= link_to "削除", blog_path(@blog.id), method: :delete
-= form_with(model: [@blog, @review], local: true) do |f|
-  = f.text_area :body, autofocus: true
-  = f.submit "投稿"
-
+- if user_signed_in? && @blog.owner_id.present? && @blog.owner_id == current_user.id
+  = link_to "編集", edit_blog_path(@blog.id)
+  = link_to "削除", blog_path(@blog.id), method: :delete
+- if user_signed_in? && @blog.owner_id.nil? && @blog.user_id == current_user.id
+  = link_to "編集", edit_blog_path(@blog.id)
+  = link_to "削除", blog_path(@blog.id), method: :delete
+- if user_signed_in?
+  = form_with(model: [@blog, @review], local: true) do |f|
+    = f.text_area :body, autofocus: true
+    = f.submit "投稿"
 お気に入りユーザー一覧
-レビュー一覧
+= render "reviews/show"

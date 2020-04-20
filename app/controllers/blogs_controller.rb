@@ -27,7 +27,7 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @blog = Blog.find(params[:id])
+    # @blog = Blog.find(params[:id])
     @user = User.find_by(id: current_user.id)
     # @blog.build_user
     # binding.pry
@@ -38,6 +38,7 @@ class BlogsController < ApplicationController
     # @blog.build_user
     # @user.update!(update_params)
     @blog.update!(update_params)
+    # binding.pry
     # @user = User.find_by(id: current_user.id)
     # @user.update!(update_params_user)
     # binding.pry
@@ -63,7 +64,7 @@ class BlogsController < ApplicationController
   end
 
   def update_params
-    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:id, :blog_id])
+    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:id, :blog_id, :_destroy]).merge(user_id: current_user.id)
   end
   # def update_params
   #   params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [])
