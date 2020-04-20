@@ -1,0 +1,5 @@
+- if @reviews
+  - @reviews.each do |review|
+    = review.body
+    - if user_signed_in? && review.user.id == current_user.id
+      = link_to "削除", blog_review_path(review.id), method: :delete

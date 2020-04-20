@@ -1,7 +1,19 @@
 class ReviewsController < ApplicationController
+
+  def show
+    @reviews = @blog.reviews.includes(:user)  
+    # @reviews = Reviews.find(params[:id])
+  end
+
   def create
     review = Review.create(review_params)
     redirect_to blog_path(review.blog.id)
+  end
+
+  def destroy
+    review = Review.find(params[:blog_id])
+    review.destroy
+    redirect_to blog_path(params[:id])
   end
 
   private

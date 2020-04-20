@@ -33,12 +33,13 @@
             = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
           - if current_user.myblog == @blog.url
             .field-labal
-              = f.text_field :owner_id, value: current_user.id
-            = f.fields_for :user, @user do |u|
+              = f.hidden_field :owner_id, value: current_user.id
+            -# = f.fields_for :user, @user do |u|
               -# = u.text_field :name
               -# = u.text_field :email, value: current_user.email
               -# = u.text_field :password, value: current_user.encrypted_password
-              = u.text_field :blog_id, value: @blog.id
+              -# = u.text_field :id, value: u.object.id
+              -# = u.text_field :blog_id, value: @blog.id
             -# = fields model: @user do |u|
             -#   = u.text_field :blog_id, value: @blog.id
               -# = u.submit "aaa"
