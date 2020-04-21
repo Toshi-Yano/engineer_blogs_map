@@ -58,6 +58,9 @@ class BlogsController < ApplicationController
     redirect_to root_path
   end
 
+  def searchpage
+  end
+
   private
   def blog_params
     params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:blog_id]).merge(user_id: current_user.id)
