@@ -58,11 +58,11 @@ header {
 }
 
 .main {
-  height: 500px;
+  height: 100%;
   padding: 30px;
   border-bottom:  1px solid rgb(88, 84, 84);
   &__index {
-    height: 500px;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -71,7 +71,6 @@ header {
       margin: 20px;
       display: flex;
       flex-direction: column;
-      overflow: scroll;
       &--category {
         margin-bottom: 15px;
         font-size: 30px;
@@ -122,3 +121,71 @@ header {
     font-size: 15px;
   }
 }
+
+.blog {
+  padding: 100px 30px 30px;
+  display: flex;
+  &__left {
+    width: 50%;
+    margin-right: 20px;
+    &__title {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    &__body {
+      margin: 15px 0;
+    }
+    &__person {
+      margin-bottom: 15px;
+      &--owner {
+        text-decoration: none;
+      }
+    }
+    &__edit {
+      margin-bottom: 15px;
+      &--each {
+        display: inline-block;
+        width: 70px;
+        height: 35px;
+        background-color: rgb(25, 69, 121);
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        line-height: 35px;
+      }
+    }
+    &__review {
+      &__title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &__form {
+        text-align: center;
+        &--body {
+          padding: 5px;
+          width: 100%;
+        }
+        &--btn {
+          width: 100px;
+          height: 40px;
+          display: inline-block;
+          border-radius: 5%;
+          font-size: 14px;
+          text-align: center;
+          font-weight: bold;
+          background: rgb(25, 69, 121);
+          color: #ffffff;
+          line-height: 1em;
+          opacity: 1;
+          transition: .3s;
+        }
+      }
+    }
+    &__right {
+      width: 50%;
+      margin-left: 20px;
+    }
+  }
+}
+

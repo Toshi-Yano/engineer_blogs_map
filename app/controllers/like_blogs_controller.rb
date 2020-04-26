@@ -17,14 +17,6 @@ class LikeBlogsController < ApplicationController
   end
 
   def destroy
-    # @blog = LikeBlog.find(params[:id]).blog
-    # @blog.delete_like(current_user)
-    # like_blog = LikeBlog.find_by(blog_id: params[:blog_id], user_id: current_user.id)
-    # like_blog.destroy
-
-    # @blog = LikeBlog.find(params[:id]).blog
-    # @blog.delete_like(current_user)
-
     @like_blog = LikeBlog.find_by(like_user_id: current_user.id, blog_id: params[:id])
     @blog = Blog.find_by(id: @like_blog.blog_id)
     @like_blog.destroy

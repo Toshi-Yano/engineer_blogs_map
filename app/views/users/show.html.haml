@@ -8,7 +8,7 @@
     %p.user__profile__myblog
       - if @user.myblog.present?
         - @blog.each do |blog|
-          = link_to "#{blog.title}", @user.blog.url
+          = link_to "#{blog.title}", blog.url
       - else
         My Blogはありません
     = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
@@ -16,7 +16,7 @@
     .user__container
       .user__container__blogs
         %ul.user__container__blogs__person
-          個人ブログ
+          お気に入り個人ブログ
           - @person_blogs.each do |blog|
             %li.user__container__blogs__person--title
               = link_to blog.title, blog.url
@@ -29,7 +29,7 @@
               %p.main__index__list--function--details
                 = link_to "詳細", blog_path(blog.id)
         %ul.user__container__blogs__person
-          企業ブログ
+          お気に入り企業ブログ
           - @campany_blogs.each do |blog|
             %li.user__container__blogs__person--title
               = link_to blog.title, blog.url
@@ -41,10 +41,3 @@
               = render partial: "like_blogs/index", locals: { blog: blog }
               %p.main__index__list--function--details
                 = link_to "詳細", blog_path(blog.id)
-      %ul.user__container__reviews
-        レビュー
-        %li each doeach doeach doeach do
-        %li each doeach doeach doeach do
-        %li each doeach doeach doeach do
-        %li each doeach doeach doeach do
-        %li each doeach doeach doeach do

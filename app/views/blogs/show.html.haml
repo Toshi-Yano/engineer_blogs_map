@@ -1,17 +1,31 @@
--# = render "header"
-= @blog.title
-= @blog.body
-登録ユーザー名or保持ユーザー名
-編集
-- if user_signed_in? && @blog.owner_id.present? && @blog.owner_id == current_user.id
-  = link_to "編集", edit_blog_path(@blog.id)
-  = link_to "削除", blog_path(@blog.id), method: :delete
-- if user_signed_in? && @blog.owner_id.nil? && @blog.user_id == current_user.id
-  = link_to "編集", edit_blog_path(@blog.id)
-  = link_to "削除", blog_path(@blog.id), method: :delete
-- if user_signed_in?
-  = form_with(model: [@blog, @review], local: true) do |f|
-    = f.text_area :body, autofocus: true
-    = f.submit "投稿"
-お気に入りユーザー一覧
-= render "reviews/show"
+= render "header"
+%section.blog
+  .blog__left
+    .blog__left__title
+      = @blog.title
+    .blog__left__body
+      = simple_format(@blog.body)
+    .blog__left__person
+      - if @blog.owner_id.present?
+        管理者：
+        = link_to "#{@owner.name}", user_path(@owner), class:"blog__left__person--owner"
+      - else
+        登録者：
+        = link_to "#{@regist_user.name}", user_path(@regist_user), class:"blog__left__person--owner"
+    .blog__left__edit
+      - if user_signed_in? && @blog.owner_id.present? && @blog.owner_id == current_user.id
+        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each"
+        = link_to "削除", blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete
+      - if user_signed_in? && @blog.owner_id.nil? && (@blog.user_id == current_user.id || @blog.url == current_user.myblog)
+        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each"
+        = link_to "削除", blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete
+    .blog__left__review
+    - if user_signed_in?
+      .blog__left__review__title レビュー投稿
+      = form_with(model: [@blog, @review], local: true) do |f|
+        .blog__left__review__form
+          = f.text_area :body, class:"blog__left__review__form--body", size:"45x5"
+        .blog__left__review__form
+          = f.submit "投稿", class:"blog__left__review__form--btn"
+  .blog_right
+    = render "reviews/show"
