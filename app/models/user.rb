@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :review,    dependent: :destroy
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 16 }
-  # validates :myblog, uniqueness: true
   validates :blog_id, null: false
+  validates :email, format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
 
   def like_by?(user)
     like_blogs.where(like_user_id: user.id).exists?

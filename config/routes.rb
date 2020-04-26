@@ -10,9 +10,8 @@ Rails.application.routes.draw do
     end
   end
   resources :blogs do
-    resources :reviews, only: [:create, :destroy]
+    resources :reviews, only: [:create, :edit, :destroy]
   end
-  # resources :blog
   resources :users, only: [:index, :show, :edit, :update]
   resources :like_blogs, only: [:create, :destroy]
 end
