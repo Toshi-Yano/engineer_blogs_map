@@ -1,14 +1,22 @@
-- if @reviews
+- if @reviews.present?
+  .blog__right__title
+    レビュー一覧
   - @reviews.each do |review|
     .blog__right__review
-      .blog__right__review--top
-        %span.blog__right__review--name
-          = link_to "#{review.user.name}", user_path(review.user)
-        %span.blog__right__review--date
-          = l review.created_at
+      .blog__right__review__top
+        .blig__right__review__top--info
+          = link_to "#{review.user.name}", user_path(review.user), class: "blog__right__review__top--info--name"
+          %a.blog__right__review__top--info--date
+            = l review.created_at
+        .blog__right__review__top--link
+          - if user_signed_in? && review.user.id == current_user.id
+            = link_to "編集", edit_blog_review_path(review.id), class: "blog__right__review__top--link--edit"
+            = link_to "削除", blog_review_path(review.id), class: "blog__right__review__top--link--delete", data: {confirm: "削除しますか？"}, method: :delete
       .blog__right__review--bottom
         %span.blog__right__review--body
-          = review.body
-      - if user_signed_in? && review.user.id == current_user.id
-        = link_to "編集", edit_blog_review_path(review.id)
-        = link_to "削除", blog_review_path(review.id), data: {confirm: "削除しますか？"}, method: :delete
+          = simple_format (review.body)
+  .paginate
+    = paginate(@reviews)
+- else
+  .blog__right__title
+    まだレビューはありません

@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
   def show
     @review = Review.new
-    @reviews = @blog.reviews.includes(:user)
+    @reviews = Review.includes(:blog, :user).order("created_at DESC").order("created_at DESC").page(params[:page]).per(10)
     @owner = User.find_by(blog_id: @blog.id)
     @regist_user = User.find_by(id: @blog.user_id)
   end
