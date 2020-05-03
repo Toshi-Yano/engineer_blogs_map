@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @person_blogs = Blog.includes(:user, :category, :blog_tags, :tags, :like_blogs, :reviews).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "1")
     @campany_blogs = Blog.includes(:user, :category, :blog_tags, :tags, :like_blogs, :reviews).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "2")
-    @blog = Blog.where(url: current_user.myblog)
+    @blogs = Blog.where(url: @user.myblog)
+    @own_blogs = Blog.where(owner_id: @user.id)
   end
 
   def edit

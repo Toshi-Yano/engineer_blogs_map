@@ -1,5 +1,6 @@
 %h1 検索ページ
 = form_with(url: blogs_searches_path, local: true, method: :get) do |f|
   = f.text_field :keyword_blogs, placeholder: "ブログを検索する"
-  = f.collection_check_boxes :id, Tag.all, :id, :name
-  = f.submit "検索"
+  = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+  = button_tag type: "submit" do
+    = icon("fas", "search", class: "xxx")

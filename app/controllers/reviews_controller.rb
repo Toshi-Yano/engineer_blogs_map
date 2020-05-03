@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     review = Review.create(review_params)
     redirect_to blog_path(review.blog.id)
   end
-
+  
   def edit
     @review = Review.find(params[:blog_id])
   end

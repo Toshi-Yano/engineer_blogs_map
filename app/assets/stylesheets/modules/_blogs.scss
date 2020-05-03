@@ -17,7 +17,6 @@ header {
   &__title {
     margin-left: 50px;
     a {
-      text-decoration: none;
       color: white;
       font-size: 20px;
       font-weight: bold;
@@ -28,7 +27,6 @@ header {
     &__items {
       margin-right: 30px;
       color: white;
-      text-decoration: none;
     }
   }
 }
@@ -83,10 +81,10 @@ header {
         &--rank {
           font-weight: bold;
         }
-        a {
-          text-decoration: none;
-          color: black;
-        }
+        // a {
+        //   text-decoration: none;
+        //   color: black;
+        // }
       }
       &--tag {
         font-size: 3px;
@@ -205,7 +203,8 @@ header {
           &--name {
             text-decoration: none;
           }
-          &--date {
+          &--date:hover {
+            text-decoration: none;
           }
         }
         &--link {

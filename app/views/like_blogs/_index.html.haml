@@ -2,6 +2,8 @@
   - if user_signed_in?
     - if blog.like_by?(current_user)
       お気に入り解除：
+      = icon("far", "thumbs-up", class: "icons__btn__edit")
+      %i.far.fa-heart
       = link_to blog.like_blogs.count, like_blog_path(blog), method: :delete
     - else
       お気に入り登録：

@@ -19,6 +19,11 @@ class Blog < ApplicationRecord
     return Blog.all unless search
     Blog.where("title LIKE(?) or body LIKE(?)", "%#{search}%", "%#{search}%")
   end
+
+  def self.tag_search(search)
+    # Blog.where()
+  end
+
   # def self.search(blogs, tags)
   #   return Blog.all unless blogs
   #   blogs = Blog.joins(:tags).where("title LIKE(?)", "%#{blogs}%")
