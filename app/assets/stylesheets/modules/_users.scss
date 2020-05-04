@@ -194,7 +194,7 @@ a:hover {
     width: 100%;
     display: flex;
     &__blogs {
-      height: 60%;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       overflow: scroll;

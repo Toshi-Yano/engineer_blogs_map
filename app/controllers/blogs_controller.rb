@@ -3,9 +3,9 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:show, :edit]
 
   def index
-    @person_blogs = Blog.joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "1").limit(10)
-    @campany_blogs = Blog.joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "2").limit(10)
-    @new_blogs = Blog.includes(:user, :category, :tags, :like_blogs).order("created_at DESC").limit(10)
+    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "1").limit(10)
+    @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "2").limit(10)
+    @new_blogs = Blog.includes(:tags, :blog_tags).order("created_at DESC").limit(10)
   end
 
   def new
@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
   def show
     @review = Review.new
-    @reviews = Review.includes(:blog, :user).order("created_at DESC").where(blog_id: params[:id]).page(params[:page]).per(10)
+    @reviews = Review.includes(:tags, :blog_tags).order("created_at DESC").where(blog_id: params[:id]).page(params[:page]).per(10)
     @owner = User.find_by(blog_id: @blog.id)
     @regist_user = User.find_by(id: @blog.user_id)
   end
@@ -40,7 +40,16 @@ class BlogsController < ApplicationController
     redirect_to root_path
   end
 
-  def searchpage
+  def search_index
+    @q = Blog.ransack(params[:q])
+    @tags = Tag.all
+    @blogs = @q.result.includes(:tags, :blog_tags)
+  end
+
+  def search_show
+    @q = Blog.search(search_params)
+    @blogs = @q.result.includes(:tags, :blog_tags)
+    # binding.pry
   end
 
   private
@@ -58,5 +67,9 @@ class BlogsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def search_params
+    params.require(:q).permit(:title_cont, :tags_id_in)
   end
 end

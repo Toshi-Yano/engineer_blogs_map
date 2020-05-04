@@ -1,0 +1,13 @@
+%h1 検索ページ
+= search_form_for(@q, url:search_show_blogs_path) do |f|
+  = f.label :title_cont, "タイトル"
+  = f.search_field :title_cont
+  = f.label :tags_id_in, "タグ"
+  = f.collection_check_boxes :tags_id_in, @tags, :id, :name
+  = button_tag type: "submit" do
+    = icon("fas", "search", class: "xxx")
+-# = form_with(url: blogs_searches_path, local: true, method: :get) do |f|
+-#   = f.text_field :keyword_blogs, placeholder: "ブログを検索する"
+-#   = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+-#   = button_tag type: "submit" do
+-#     = icon("fas", "search", class: "xxx")
