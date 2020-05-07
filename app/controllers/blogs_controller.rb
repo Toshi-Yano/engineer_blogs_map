@@ -48,7 +48,7 @@ class BlogsController < ApplicationController
 
   def search_show
     @q = Blog.search(search_params)
-    @blogs = @q.result.includes(:tags, :blog_tags)
+    @blogs = @q.result.includes(:tags, :blog_tags).page(params[:page]).to_a.uniq
     # binding.pry
   end
 
@@ -70,6 +70,6 @@ class BlogsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:title_cont, :tags_id_in)
+    params.require(:q).permit(:title_cont, tags_id_in: [])
   end
 end

@@ -1,10 +1,11 @@
 %h1 検索結果
-- @blogs.each do |blog|
-  %tr
-    %td= blog.title
-    %td= blog.body
-    - blog.tags.each do |tag|
-      = tag.name
-    -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
-  -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?
-  -#   = params[:q][:tags_id_in].reject(&:blank?).map{|tag_id| Tag.find(tag_id).name}.join(', ')
+%table
+  - @blogs.each do |blog|
+    %tr
+      %td= blog.title
+      %td= blog.body
+      - blog.tags.each do |tag|
+        %td= tag.name
+      -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
+    -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?
+    -#   = params[:q][:tags_id_in].reject(&:blank?).map{|tag_id| Tag.find(tag_id).name}.join(', ')
