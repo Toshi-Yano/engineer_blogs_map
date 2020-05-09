@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
   def show
     @review = Review.new
-    @reviews = Review.includes(:tags, :blog_tags).order("created_at DESC").where(blog_id: params[:id]).page(params[:page]).per(10)
+    @reviews = Review.includes(:user).order("created_at DESC").where(blog_id: params[:id]).page(params[:page]).per(10)
     @owner = User.find_by(blog_id: @blog.id)
     @regist_user = User.find_by(id: @blog.user_id)
   end
@@ -48,6 +48,7 @@ class BlogsController < ApplicationController
 
   def search_show
     @q = Blog.search(search_params)
+    @tags = Tag.all
     @blogs = @q.result.includes(:tags, :blog_tags).page(params[:page]).to_a.uniq
     # binding.pry
   end

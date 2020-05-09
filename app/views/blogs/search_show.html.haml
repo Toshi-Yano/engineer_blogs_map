@@ -1,11 +1,19 @@
-%h1 検索結果
-%table
-  - @blogs.each do |blog|
-    %tr
-      %td= blog.title
-      %td= blog.body
-      - blog.tags.each do |tag|
-        %td= tag.name
-      -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
-    -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?
-    -#   = params[:q][:tags_id_in].reject(&:blank?).map{|tag_id| Tag.find(tag_id).name}.join(', ')
+= render "header"
+.search
+  = render "search"
+  .search__right
+    .search__right__index
+      - @blogs.each do |blog|
+        .search__right__index--each
+          .search__right__index--each__title
+            = link_to blog.title, blog_path(blog.id)
+          .search__right__index--each__tags
+            - blog.tags.each do |tag|
+              %span= tag.name
+          .search__right__index--each__body
+            %span= blog.body
+          .search__right__index--each__like
+            = render partial: "like_blogs/index", locals: { blog: blog }
+            -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
+          -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?
+          -#   = params[:q][:tags_id_in].reject(&:blank?).map{|tag_id| Tag.find(tag_id).name}.join(', ')
