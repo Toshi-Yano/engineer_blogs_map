@@ -6,41 +6,35 @@
         %li.main__index__list--title
           %span.main__index__list--title--rank
             = "#{rank + 1}位\b"
-          = link_to blog.title, blog.url
+          = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
-        %li.main__index__list--function
+        %li.main__index__list--function#like-icon{ id: blog.id }
           = render partial: "like_blogs/index", locals: { blog: blog }
-          %p.main__index__list--function--details
-            = link_to "詳細", blog_path(blog.id)
     %ul.main__index__list
       %p.main__index__list--category 人気企業
       - @campany_blogs.each_with_index do |blog, rank|
         %li.main__index__list--title
           %span.main__index__list--title--rank
             = "#{rank + 1}位\b"
-          = link_to blog.title, blog.url
+          = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
-        %li.main__index__list--function
+        %li.main__index__list--function#like-icon{ id: blog.id }
           = render partial: "like_blogs/index", locals: { blog: blog }
-          %p.main__index__list--function--details
-            = link_to "詳細", blog_path(blog.id)
     %ul.main__index__list
       %p.main__index__list--category 新着
       - @new_blogs.each do |blog|
         %li.main__index__list--title
           %span.main__index__list--title--rank
-          = link_to blog.title, blog.url
+          = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
-        %li.main__index__list--function
+        %li.main__index__list--function#like-icon-new{ id: blog.id }
           = render partial: "like_blogs/index", locals: { blog: blog }
-          %p.main__index__list--function--details
-            = link_to "詳細", blog_path(blog.id)

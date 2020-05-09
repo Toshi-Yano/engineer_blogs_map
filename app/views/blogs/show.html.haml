@@ -2,7 +2,7 @@
 .blog
   .blog__left
     .blog__left__title
-      = @blog.title
+      = link_to @blog.title, @blog.url
     .blog__left__body
       = simple_format(@blog.body)
     .blog__left__person

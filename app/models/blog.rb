@@ -11,7 +11,7 @@ class Blog < ApplicationRecord
   validates :url, presence: true, uniqueness: true
   validates :body, presence: true, length: {maximum: 200}
 
-  def like_by?(user)
+  def liked_by?(user)
     like_blogs.where(like_user_id: user.id).exists?
   end
 

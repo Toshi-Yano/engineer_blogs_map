@@ -9,10 +9,11 @@
             = link_to blog.title, blog_path(blog.id)
           .search__right__index--each__tags
             - blog.tags.each do |tag|
-              %span= tag.name
+              %p.main__index__list--tag--partial
+                = tag.name
           .search__right__index--each__body
-            %span= blog.body
-          .search__right__index--each__like
+            %p= blog.body
+          .search__right__index--each__like#like-icon{ id: blog.id }
             = render partial: "like_blogs/index", locals: { blog: blog }
             -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
           -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?

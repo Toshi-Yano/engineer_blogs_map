@@ -31,10 +31,8 @@
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
                   = tag.name
-            %li.main__index__list--function
+            %li.main__index__list--function#like-icon{ id: blog.id }
               = render partial: "like_blogs/index", locals: { blog: blog }
-              %p.main__index__list--function--details
-                = link_to "詳細", blog_path(blog.id)
         %ul.user__container__blogs__person
           お気に入り企業ブログ
           - @campany_blogs.each do |blog|
@@ -44,7 +42,5 @@
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
                   = tag.name
-            %li.main__index__list--function
+            %li.main__index__list--function#like-icon{ id: blog.id }
               = render partial: "like_blogs/index", locals: { blog: blog }
-              %p.main__index__list--function--details
-                = link_to "詳細", blog_path(blog.id)

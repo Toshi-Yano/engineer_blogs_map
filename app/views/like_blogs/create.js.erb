@@ -1,0 +1,2 @@
+$("#like-icon_<%= @blog.id %>").html("<%= j(render partial: "like_blogs/index", locals: { blog: @blog }) %>");
+$("#like-icon-new_<%= @blog.id %>").html("<%= j(render partial: "like_blogs/index", locals: { blog: @blog }) %>");

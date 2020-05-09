@@ -1,16 +1,14 @@
-%p.main__index__list--function--like
-  - if user_signed_in?
-    - if blog.like_by?(current_user)
-      お気に入り解除：
-      = link_to like_blog_path(blog), class: "like-icon", method: :delete do
-        = icon("far", "heart", class: "like-icon__link")
-      = blog.like_blogs.count
-    - else
-      お気に入り登録：
-      = link_to like_blogs_path(blog), class: "like-icon", method: :post do
-        = icon("far", "heart", class: "like-icon__link")
-      = blog.like_blogs.count
+- if user_signed_in?
+  - if blog.liked_by?(current_user)
+    = link_to like_blog_path(blog), class: "like-icon", method: :delete, remote: true do
+      = icon("fas", "heart", class: "like-icon__link-red")
+    %span.like-count#like-count{ id: blog.id }= blog.like_blogs.count
   - else
-    お気に入り：
+    = link_to like_blogs_path(blog), class: "like-icon", method: :post, remote: true do
+      = icon("far", "heart", class: "like-icon__link")
+    %span#like-count{ id: blog.id }= blog.like_blogs.count
+- else
+  -# = link_to like_blogs_path(blog), class: "like-icon", method: :post, remote: true do
+  %a.like-icon
     = icon("far", "heart", class: "like-icon__link")
-    = blog.like_blogs.count
+  %span#like-count= blog.like_blogs.count
