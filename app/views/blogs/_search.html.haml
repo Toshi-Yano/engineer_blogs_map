@@ -1,0 +1,11 @@
+.search__left
+  = search_form_for(@q, url:search_show_blogs_path) do |f|
+    -# = f.condition_fields do |c|
+    -#   = c.attribute_fields do |a|
+    -#     = a.attribute_select
+    = f.label :title_cont, "タイトル"
+    = f.search_field :title_cont
+    = f.label :tags_id_in, "タグ"
+    = f.collection_check_boxes :tags_id_in, @tags, :id, :name
+    = button_tag type: "submit" do
+      = icon("fas", "search", class: "xxx")

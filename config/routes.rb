@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root "blogs#index"
-  namespace :blogs do
-    resources :searches, only: :index
-  end
   resources :blogs do
     collection do
-      get :searchpage
+      get :search_index
+      get :search_show
     end
   end
   resources :blogs do
