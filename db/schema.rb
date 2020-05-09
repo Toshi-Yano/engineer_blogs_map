@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_160652) do
+ActiveRecord::Schema.define(version: 2020_05_09_175539) do
 
   create_table "blog_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "blog_id"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_160652) do
     t.bigint "blog_id"
     t.index ["blog_id"], name: "index_users_on_blog_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["myblog"], name: "index_users_on_myblog", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
