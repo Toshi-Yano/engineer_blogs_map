@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root "blogs#index"
   resources :blogs do
     collection do
-      get :search_index
       get :search_show
     end
   end

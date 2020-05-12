@@ -40,16 +40,18 @@ class BlogsController < ApplicationController
     redirect_to root_path
   end
 
-  def search_index
-    @q = Blog.ransack(params[:q])
-    @tags = Tag.all
-    @blogs = @q.result.includes(:tags, :blog_tags)
-  end
-
   def search_show
-    @q = Blog.search(search_params)
+    unless params[:q].blank?
+      params[:q]["title_cont_all"] = params[:q]["title_cont_all"].split(/[\p{blank}\s]+/)
+      params[:q]["body_cont_all"] = params[:q]["body_cont_all"].split(/[\p{blank}\s]+/)
+      @q = Blog.ransack(params[:q])
+      @blogs = @q.result.includes(:tags, :blog_tags).page(params[:page]).to_a.uniq
+    else
+      params[:q] = {sorts: "created_at DESC"}
+      @q = Blog.ransack()
+      @blogs = Blog.includes(:tags, :blog_tags)
+    end
     @tags = Tag.all
-    @blogs = @q.result.includes(:tags, :blog_tags).page(params[:page]).to_a.uniq
     # binding.pry
   end
 
@@ -70,7 +72,7 @@ class BlogsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
-  def search_params
-    params.require(:q).permit(:title_cont, tags_id_in: [])
-  end
+#   def search_params
+#     params.require(:q).permit(:title_cont, tags_id_in: [])
+#   end
 end

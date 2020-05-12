@@ -8,6 +8,8 @@
             = "#{rank + 1}位\b"
           = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
+          %a.tags-icon
+            = icon("fas", "tags", class: "#")
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
@@ -21,6 +23,8 @@
             = "#{rank + 1}位\b"
           = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
+          %a.tags-icon
+            = icon("fas", "tags", class: "#")
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name
@@ -33,6 +37,8 @@
           %span.main__index__list--title--rank
           = link_to blog.title, blog_path(blog)
         %li.main__index__list--tag
+          %a.tags-icon
+            = icon("fas", "tags", class: "#")
           - blog.tags.each do |tag|
             %p.main__index__list--tag--partial
               = tag.name

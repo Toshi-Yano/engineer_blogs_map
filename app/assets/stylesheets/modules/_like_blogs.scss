@@ -2,9 +2,17 @@
   text-decoration: none;
 }
 
-.like-icon{
+.like {
+  &-icon{
   margin-right: 5px;
-  &__link-red {
-    color: red;
+    &__link {
+      color: #FFD550;
+      &-yellow {
+        color: #FFD550;
+      }
+    }
+  }
+  &-count {
+    line-height: 27px;
   }
 }
