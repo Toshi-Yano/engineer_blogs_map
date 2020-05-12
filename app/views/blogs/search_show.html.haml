@@ -8,13 +8,12 @@
           .search__right__index--each__title
             = link_to blog.title, blog_path(blog.id)
           .search__right__index--each__tags
+            %a.tags-icon
+              = icon("fas", "tags", class: "#")
             - blog.tags.each do |tag|
-              %p.main__index__list--tag--partial
+              %p.main__index__list--tag--partial.main__index__list--tag--partial--search
                 = tag.name
           .search__right__index--each__body
             %p= blog.body
           .search__right__index--each__like#like-icon{ id: blog.id }
             = render partial: "like_blogs/index", locals: { blog: blog }
-            -# %td= blog.tags.map{|tag_id| Tag.find(tag_id).name}.join(', ')
-          -# - unless params[:q][:tags_id_in].reject(&:blank?).empty?
-          -#   = params[:q][:tags_id_in].reject(&:blank?).map{|tag_id| Tag.find(tag_id).name}.join(', ')

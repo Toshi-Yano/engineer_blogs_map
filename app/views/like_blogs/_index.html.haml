@@ -1,14 +1,13 @@
 - if user_signed_in?
   - if blog.liked_by?(current_user)
     = link_to like_blog_path(blog), class: "like-icon", method: :delete, remote: true do
-      = icon("fas", "heart", class: "like-icon__link-red")
+      = icon("fas", "star", class: "like-icon__link-yellow")
     %span.like-count#like-count{ id: blog.id }= blog.like_blogs.count
   - else
     = link_to like_blogs_path(blog), class: "like-icon", method: :post, remote: true do
-      = icon("far", "heart", class: "like-icon__link")
+      = icon("far", "star", class: "like-icon__link")
     %span#like-count{ id: blog.id }= blog.like_blogs.count
 - else
-  -# = link_to like_blogs_path(blog), class: "like-icon", method: :post, remote: true do
   %a.like-icon
-    = icon("far", "heart", class: "like-icon__link")
+    = icon("far", "star", class: "like-icon__link")
   %span#like-count= blog.like_blogs.count

@@ -1,5 +1,5 @@
 html {
-  background-color: rgb(252, 252, 237);
+  background-color: #F6F6F4;
 }
 
 header {
@@ -57,7 +57,7 @@ header {
 
 .main {
   height: 100%;
-  padding: 30px;
+  padding: 20px;
   border-bottom:  1px solid rgb(88, 84, 84);
   &__index {
     height: 100%;
@@ -66,7 +66,8 @@ header {
     justify-content: space-around;
     &__list {
       width: calc(100% / 3);
-      margin: 20px;
+      padding: 20px;
+      margin: 10px;
       display: flex;
       flex-direction: column;
       &--category {
@@ -90,9 +91,12 @@ header {
         font-size: 3px;
         &--partial {
           display: inline-block;
-          background-color: rgb(245, 245, 81);
-          padding: 3px;
-          border-radius: 10px;
+          background-color: rgb(218, 223, 230);
+          padding: 3px 5px;
+          border-radius: 8px;
+          &--search {
+            font-size: 10px;
+          }
         }
       }
       &--function {
@@ -100,6 +104,12 @@ header {
       }
     }
   }
+}
+
+.tags-icon {
+  color: rgb(164, 174, 190);
+  font-size: 12px;
+  margin: 0 2px;
 }
 
 .footer {
