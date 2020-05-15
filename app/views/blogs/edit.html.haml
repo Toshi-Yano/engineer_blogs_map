@@ -28,9 +28,26 @@
             = f.label :category
             = f.collection_select :category_id, Category.all, :id, :name
         .field
-          .field-label
-            = f.label :tag
-            = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+          .field__search--label
+            %label.field__search--label--text{:for => "chat_group_タグを追加"} タグを追加
+          .field__search--form
+            %input.field__search--form--input#search-form{:type => "text"}
+          #search-result
+        .field
+          .field__include--label
+            %label.field__include--label--text{:for => "chat_group_タグ"} タグ
+          .field__include--form
+            #include-tag
+        = render "tags/form"
+        -# .field
+        -#   .field__tag.js-new-tags
+        -#     - @blog.tags.each do |tag|
+        -#       .field__tag--each
+        -#         %input{name: "blog[tag_ids][]", type: "hidden", value: tag.id }
+        -#         %p.field__tag--each--name
+        -#           = tag.name
+        -#         %a.field__tag--each--btn--remove
+        -#           削除
           - if current_user.myblog == @blog.url
             .field-labal
               = f.hidden_field :owner_id, value: current_user.id
@@ -43,5 +60,5 @@
             -# = fields model: @user do |u|
             -#   = u.text_field :blog_id, value: @blog.id
               -# = u.submit "aaa"
-          .actions
-            = f.submit "Update", class: 'btn'
+        .actions
+          = f.submit "Update", class: 'btn'

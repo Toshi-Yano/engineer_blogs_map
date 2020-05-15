@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search_show]
   before_action :set_blogs, only: [:show, :edit]
 
   def index
@@ -48,8 +48,8 @@ class BlogsController < ApplicationController
       @blogs = @q.result.includes(:tags, :blog_tags).page(params[:page]).to_a.uniq
     else
       params[:q] = {sorts: "created_at DESC"}
-      @q = Blog.ransack()
-      @blogs = Blog.includes(:tags, :blog_tags)
+      @q = Blog.ransack(params[:q])
+      @blogs = @q.result.includes(:tags, :blog_tags)
     end
     @tags = Tag.all
     # binding.pry

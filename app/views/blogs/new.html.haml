@@ -28,8 +28,20 @@
             = f.label :category
             = f.collection_select :category_id, Category.all, :id, :name
         .field
-          .field-label
-            = f.label :tag
-            = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+          .field__search--label
+            %label.field__search--label--text{:for => "chat_group_タグを追加"} タグを追加
+          .field__search--form
+            %input.field__search--form--input#search-form{:type => "text"}
+          #search-result
+        .field
+          .field__include--label
+            %label.field__include--label--text{:for => "chat_group_タグ"} タグ
+          .field__include--form
+            #include-tag
+        = render "tags/form"
+        -# .field
+        -#   .field-label
+        -#     = f.label :tag
+        -#     = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
         .actions
           = f.submit "Update", class: 'btn'
