@@ -3,8 +3,7 @@ $(function() {
     function addTagView(tag) {
       let html = `
         <div class="field__tag--each">
-          <p class ="field__tag--each--name">${tag.name}</p>
-          <div class="field__tag--each--btn--add" data-tag-id="${tag.id}" data-tag-name="${tag.name}">追加</div>
+          <p class ="field__tag--each--name main__index__list--tag--partial field__tag--each--btn--add" data-tag-id="${tag.id}" data-tag-name="${tag.name}">${tag.name}</p>
         </div>
         `;
         $("#search-result").append(html);
@@ -22,8 +21,7 @@ $(function() {
     function addDeleteTag(name, id) {
       let html = `
         <div class="field__tag--each" id="${id}">
-          <p class ="field__tag--each--name">${name}</p>
-          <div class="field__tag--each--btn--remove" data-tag-id="${id}" data-tag-name="${name}">削除</div>
+          <p class ="field__tag--each--name main__index__list--tag--partial field__tag--each--btn--remove" data-tag-id="${id}" data-tag-name="${name}">${name}</p>
         </div>
       `;
       $(".js-new-tags").append(html);

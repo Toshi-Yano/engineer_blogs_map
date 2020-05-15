@@ -3,7 +3,5 @@
     - @blog.tags.each do |tag|
       .field__tag--each
         %input{name: "blog[tag_ids][]", type: "hidden", value: tag.id }
-        %p.field__tag--each--name
+        %p.field__tag--each--name.main__index__list--tag--partial.field__tag--each--btn--remove
           = tag.name
-        %a.field__tag--each--btn--remove
-          削除

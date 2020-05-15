@@ -1,3 +1,20 @@
 .field__search--result {
   display: flex;
 }
+
+#search-result {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.field__tag {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  &--each--name {
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+}

@@ -29,36 +29,18 @@
             = f.collection_select :category_id, Category.all, :id, :name
         .field
           .field__search--label
-            %label.field__search--label--text{:for => "chat_group_タグを追加"} タグを追加
+            %label.field__search--label--text タグを追加（クリックで選択）
           .field__search--form
-            %input.field__search--form--input#search-form{:type => "text"}
+            %input.field__search--form--input#search-form{autocomplete: "off"}
           #search-result
         .field
           .field__include--label
-            %label.field__include--label--text{:for => "chat_group_タグ"} タグ
+            %label.field__include--label--text 選択済（クリックで削除）
           .field__include--form
             #include-tag
         = render "tags/form"
-        -# .field
-        -#   .field__tag.js-new-tags
-        -#     - @blog.tags.each do |tag|
-        -#       .field__tag--each
-        -#         %input{name: "blog[tag_ids][]", type: "hidden", value: tag.id }
-        -#         %p.field__tag--each--name
-        -#           = tag.name
-        -#         %a.field__tag--each--btn--remove
-        -#           削除
-          - if current_user.myblog == @blog.url
-            .field-labal
-              = f.hidden_field :owner_id, value: current_user.id
-            -# = f.fields_for :user, @user do |u|
-              -# = u.text_field :name
-              -# = u.text_field :email, value: current_user.email
-              -# = u.text_field :password, value: current_user.encrypted_password
-              -# = u.text_field :id, value: u.object.id
-              -# = u.text_field :blog_id, value: @blog.id
-            -# = fields model: @user do |u|
-            -#   = u.text_field :blog_id, value: @blog.id
-              -# = u.submit "aaa"
+        - if current_user.myblog == @blog.url
+          .field-labal
+            = f.hidden_field :owner_id, value: current_user.id
         .actions
           = f.submit "Update", class: 'btn'
