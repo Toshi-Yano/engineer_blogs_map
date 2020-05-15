@@ -29,13 +29,13 @@
             = f.collection_select :category_id, Category.all, :id, :name
         .field
           .field__search--label
-            %label.field__search--label--text{:for => "chat_group_タグを追加"} タグを追加
+            %label.field__search--label--text タグを追加
           .field__search--form
-            %input.field__search--form--input#search-form{:type => "text"}
+            %input.field__search--form--input#search-form{autocomplete: "off"}
           #search-result
         .field
           .field__include--label
-            %label.field__include--label--text{:for => "chat_group_タグ"} タグ
+            %label.field__include--label--text{:for => "chat_group_タグ"} 選択済タグ
           .field__include--form
             #include-tag
         = render "tags/form"
