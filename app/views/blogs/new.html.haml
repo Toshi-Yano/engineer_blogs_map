@@ -7,6 +7,7 @@
       = link_to "ログアウト",destroy_user_session_path, method: :delete, class: 'btn'
       = link_to "トップページに戻る", :back, class: 'btn'
     .account-page__inner--right.user-form
+      = render "layouts/error_blog"
       = form_with(model: @blog, local: true) do |f|
         .field
           .field-label
@@ -29,7 +30,7 @@
             = f.collection_select :category_id, Category.all, :id, :name
         .field
           .field__search--label
-            %label.field__search--label--text タグを追加（クリックで選択）
+            %label.field__search--label--text タグを追加（クリックで選択、最大10個まで）
           .field__search--form
             %input.field__search--form--input#tag-form{autocomplete: "off"}
           #search-result
