@@ -4,17 +4,21 @@
   - @reviews.each do |review|
     .blog__right__review
       .blog__right__review__top
-        .blig__right__review__top--info
-          = link_to "#{review.user.name}", user_path(review.user), class: "blog__right__review__top--info--name"
-          %a.blog__right__review__top--info--date
+        .blog__right__review__top--title
+          = link_to "#{review.article_title}", review.article_url, target: :_blank, class: "blog__right__review__top--title--text"
+      .blog__right__review--middle
+        = simple_format (review.body), class: "blog__right__review__middle--body"
+      .blog__right__review__bottom
+        .blog__right__review__bottom--info
+          = link_to "#{review.user.name}", user_path(review.user), class: "blog__right__review__bottom--info--name"
+          %a.blog__right__review__bottom--info--date
             = l review.created_at
-        .blog__right__review__top--link
+        .blog__right__review__bottom--link
           - if user_signed_in? && review.user.id == current_user.id
-            = link_to "編集", edit_blog_review_path(review.id), class: "blog__right__review__top--link--edit"
-            = link_to "削除", blog_review_path(review.id), class: "blog__right__review__top--link--delete", data: {confirm: "削除しますか？"}, method: :delete
-      .blog__right__review--bottom
-        %span.blog__right__review--body
-          = simple_format (review.body)
+            = link_to edit_blog_review_path(review.id), class: "blog__right__review__bottom--link--edit" do
+              = icon("fa", "edit")
+            = link_to blog_review_path(review.id), class: "blog__right__review__bottom--link--delete", data: {confirm: "削除しますか？"}, method: :delete do
+              = icon("fa", "trash-alt")
   .paginate
     = paginate(@reviews)
 - else

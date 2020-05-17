@@ -13,25 +13,18 @@
       margin-bottom: 10px;
       &--field {
         &--title {
-          width: 70%;
-          height: 40px;
-          background-color: white;
-          border-radius: 3px;
-          border: 1px solid #A6A6A6;
-          padding: 10px;
+          @include search-form;
         }
         &--body {
-          width: 70%;
-          height: 40px;
-          background-color: white;
-          border-radius: 3px;
-          border: 1px solid #A6A6A6;
-          padding: 10px;
+          @include search-form;
+        }
+        &--tag {
+          @include search-form;
         }
       }
     }
     &__sort {
-      margin-bottom: 10px;
+      margin: 20px 0;
       width: 100%;
       &--tab {
         height: 30px;

@@ -1,6 +1,7 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mixin/mixin";
 @import "modules/users";
 @import "modules/blogs";
 @import "modules/like_blogs";
@@ -8,3 +9,4 @@
 @import "modules/tag";
 @import "modules/myblog";
 @import "modules/error";
+@import "modules/flash";

@@ -13,8 +13,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_params)
+    @blog = Blog.new(blog_params)
+    if @blog.save
     redirect_to root_path
+    else
+    render :new
+    end
   end
 
   def show
@@ -25,12 +29,14 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: current_user.id)
   end
 
   def update
-    @blog.update!(update_params)
+    if @blog.update(update_params)
     redirect_to blog_path(@blog.id)
+    else
+    render :edit
+    end
   end
 
   def destroy
