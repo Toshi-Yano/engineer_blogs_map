@@ -22,16 +22,6 @@
             = f.label :introduction
           .field-input
             = f.text_area :introduction
-        .field
-          .field-label
-            = f.label :myblog
-          .field-input
-            = f.text_field :myblog
-        - if current_user.myblog
-          .field
-            .field-label
-              = f.label :Myblogを登録する
-              = f.collection_select :blog_id, Blog.all, :id, :title
         .actions
           = f.submit "Update", class: 'btn'
       -# = form_with(model: @blog, local: true) do |f|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_175539) do
+ActiveRecord::Schema.define(version: 2020_05_16_225547) do
 
   create_table "blog_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "blog_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_09_175539) do
     t.index ["body"], name: "index_blogs_on_body", length: 200
     t.index ["category_id"], name: "index_blogs_on_category_id"
     t.index ["title"], name: "index_blogs_on_title"
+    t.index ["url"], name: "index_blogs_on_url"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
 

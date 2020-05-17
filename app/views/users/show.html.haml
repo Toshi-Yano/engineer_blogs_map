@@ -3,6 +3,7 @@
   .user__profile
     %p.user__profile__name
       = "#{@user.name}さんのプロフィール"
+      = link_to "登録", new_myblog_blogs_path, data:{"turbolinks" => false}
     .user__profile__intro
       = simple_format(@user.introduction)
     .user__profile__myblog
@@ -14,9 +15,8 @@
         %p.user__profile__myblog--way 登録方法
         %ul.user__profile__myblog--discribe
           %li ①ブログを登録
-          %li ②プロフィール編集画面で「Myblog」の欄にURLを入力
-          %li ③プロフィール編集画面で「Myblogを登録する」の欄からブログタイトルを選択
-          %li ④ブログ情報を編集・更新
+          %li ②マイページから「Myblogを登録する」へ進む
+          %li ③URLを入力して登録
     - if user_signed_in? && @user.id == current_user.id
       = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
   - if user_signed_in? && @user.id == current_user.id

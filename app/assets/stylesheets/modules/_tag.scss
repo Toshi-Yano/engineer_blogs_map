@@ -9,6 +9,10 @@
   margin-top: 5px;
 }
 
+#q_tags_id_in {
+  display: none;
+}
+
 .field__tag {
   width: 100%;
   display: flex;
@@ -17,4 +21,9 @@
     margin-bottom: 5px;
     margin-right: 5px;
   }
+}
+.search__left__form--tag--pushed {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
 }

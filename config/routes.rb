@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :blogs do
     collection do
       get :search_show
+      get :new_myblog
+      get :create_myblog
+      get :search_myblog
     end
   end
   resources :blogs do

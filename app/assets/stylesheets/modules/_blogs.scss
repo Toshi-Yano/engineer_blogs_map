@@ -94,6 +94,7 @@ header {
           background-color: rgb(218, 223, 230);
           padding: 3px 5px;
           border-radius: 8px;
+          cursor: pointer;
           &--search {
             font-size: 10px;
           }
@@ -186,6 +187,7 @@ header {
           line-height: 1em;
           opacity: 1;
           transition: .3s;
+          cursor: pointer;
         }
       }
     }

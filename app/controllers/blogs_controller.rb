@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search_show]
-  before_action :set_blogs, only: [:show, :edit]
+  before_action :set_blogs, only: [:show, :edit, :update, :destroy]
 
   def index
     @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "1").limit(10)
@@ -29,14 +29,12 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog = Blog.find(params[:id])
     @blog.update!(update_params)
     redirect_to blog_path(@blog.id)
   end
 
   def destroy
-    blog = Blog.find(params[:id])
-    blog.destroy
+    @blog.destroy
     redirect_to root_path
   end
 
@@ -52,8 +50,29 @@ class BlogsController < ApplicationController
       @blogs = @q.result.includes(:tags, :blog_tags)
     end
     @tags = Tag.all
-    # binding.pry
   end
+
+  def search_myblog
+    @blogs = Blog.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def new_myblog
+  end
+
+  def create_myblog
+    @blog = Blog.find_by(url: params[:url])
+    @blog[:owner_id] = current_user.id
+    @blog.save
+    redirect_to root_path
+  end
+
+  # def delete_myblog
+    
+  # end
 
   private
   def blog_params
@@ -64,6 +83,10 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:id, :blog_id, :_destroy]).merge(user_id: current_user.id)
   end
 
+  def myblog_params
+    params.require(:blog).permit(:url)
+  end
+
   def set_blogs
     @blog = Blog.find(params[:id])
   end
@@ -72,7 +95,4 @@ class BlogsController < ApplicationController
     redirect_to action: :index unless user_signed_in?
   end
 
-#   def search_params
-#     params.require(:q).permit(:title_cont, tags_id_in: [])
-#   end
 end

@@ -15,6 +15,11 @@ class Blog < ApplicationRecord
     like_blogs.where(like_user_id: user.id).exists?
   end
 
+  def self.search(input)
+    return nil if input == ""
+    Blog.where(["url LIKE ?", "#{input}"])
+  end
+
   # ransacker :like_count do
   #   query = "(SELECT COUNT(blog_id) FROM like_blogs WHERE blog_id = blog_id GROUP BY blog_id)"
   #   Arel.sql(query)

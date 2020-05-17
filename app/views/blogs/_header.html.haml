@@ -5,7 +5,7 @@
     -if user_signed_in?
       -# = link_to "#", class: "header__contents__items" do
       -#   ABOUT
-      = link_to "検索", search_show_blogs_path, class: "header__contents__items"
+      = link_to "検索", search_show_blogs_path, class: "header__contents__items", data:{"turbolinks" => false}
       = link_to "共有", new_blog_path, class: "header__contents__items", data:{"turbolinks" => false}
       = link_to "マイページ", user_path(current_user), class: "header__contents__items"
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__contents__items"
