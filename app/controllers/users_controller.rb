@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :introduction, :blog_id)
+    params.require(:user).permit(:name, :email, :introduction)
   end
 
   def move_to_root

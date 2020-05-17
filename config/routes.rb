@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get :new_myblog
       get :create_myblog
       get :search_myblog
+      get :delete_myblog
     end
   end
   resources :blogs do

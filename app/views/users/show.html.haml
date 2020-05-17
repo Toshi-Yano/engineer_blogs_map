@@ -4,6 +4,7 @@
     %p.user__profile__name
       = "#{@user.name}さんのプロフィール"
       = link_to "登録", new_myblog_blogs_path, data:{"turbolinks" => false}
+      = link_to "削除", new_myblog_blogs_path, data:{"turbolinks" => false}
     .user__profile__intro
       = simple_format(@user.introduction)
     .user__profile__myblog

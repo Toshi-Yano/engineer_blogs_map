@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
   def show
     @review = Review.new
     @reviews = Review.includes(:user).order("created_at DESC").where(blog_id: params[:id]).page(params[:page]).per(10)
-    @owner = User.find_by(blog_id: @blog.id)
+    @owner = User.find_by(id: @blog.owner_id)
     @regist_user = User.find_by(id: @blog.user_id)
   end
 
@@ -70,9 +70,9 @@ class BlogsController < ApplicationController
     redirect_to root_path
   end
 
-  # def delete_myblog
+  def delete_myblog
     
-  # end
+  end
 
   private
   def blog_params
