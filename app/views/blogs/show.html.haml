@@ -30,17 +30,17 @@
             .blog__review__form--label
               = f.label :おすすめ記事（任意）
             .blog__review__form--input
-              = f.url_field :article_url, class:"blog__review__form--body", placeholder: "URLを入力して下さい"
+              = f.url_field :article_url, class:"blog__review__form--body", placeholder: "記事URL"
           .blog__review__form
             .blog__review__form--label
               = f.label :記事タイトル（任意）
             .blog__review__form--input
-              = f.text_field :article_title, class:"blog__review__form--body", placeholder: "タイトルをコピーペースト（100文字まで）"
+              = f.text_field :article_title, class:"blog__review__form--body", placeholder: "記事タイトル（最大100文字）"
           .blog__review__form
             .blog__review__form--label
               = f.label :レビュー（必須）
             .blog__review__form--input
-              = f.text_area :body, class:"blog__review__form--body", size: "40x3", placeholder: "レビュー本文（200文字まで）"
+              = f.text_area :body, class:"blog__review__form--body", size: "40x3", placeholder: "レビュー本文（最大200文字）"
           .blog__review__form
             = f.submit "投稿", class:"blog__review__form--btn"
   .blog__right

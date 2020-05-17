@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: engineer_blogs_map_production
-  username: engineer_blogs_map
-  password: <%= ENV['ENGINEER_BLOGS_MAP_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
