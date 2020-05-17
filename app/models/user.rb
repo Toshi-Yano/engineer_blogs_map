@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: {maximum: 16 }
   validates :email, format: { with: /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/ }
+  validates :introduction, length: {maximum: 200}
 end

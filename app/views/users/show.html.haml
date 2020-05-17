@@ -4,13 +4,13 @@
     %p.user__profile__name
       = "#{@user.name}さんのプロフィール"
       = link_to "登録", new_myblog_blogs_path, data:{"turbolinks" => false}
-      = link_to "削除", new_myblog_blogs_path, data:{"turbolinks" => false}
     .user__profile__intro
       = simple_format(@user.introduction)
     .user__profile__myblog
       - if @own_blogs.present?
         - @own_blogs.each do |blog|
           = link_to "所有ブログ：#{blog.title}", blog.url, class: "user__profile__myblog--content"
+          = link_to "削除", delete_myblog_blog_path(blog.id), data: {confirm: "MyBlogの登録を解除しますか？"}
       - else
         My Blogはありません。
         %p.user__profile__myblog--way 登録方法
@@ -27,7 +27,7 @@
           お気に入り個人ブログ
           - @person_blogs.each do |blog|
             %li.user__container__blogs__person--title
-              = link_to blog.title, blog.url
+              = link_to blog.title, blog_path(blog)
             %li.user__container__blogs__person--tag
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
@@ -38,7 +38,7 @@
           お気に入り企業ブログ
           - @campany_blogs.each do |blog|
             %li.user__container__blogs__person--title
-              = link_to blog.title, blog.url
+              = link_to blog.title, blog_path(blog)
             %li.user__container__blogs__person--tag
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial

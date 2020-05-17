@@ -71,7 +71,11 @@ class BlogsController < ApplicationController
   end
 
   def delete_myblog
-    
+    # @blog = Blog.find(params[:format])
+    @blog = Blog.find(params[:id])
+    @blog[:owner_id] = nil
+    @blog.save
+    redirect_to root_path
   end
 
   private
