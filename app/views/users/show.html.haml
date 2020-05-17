@@ -3,20 +3,21 @@
   .user__profile
     %p.user__profile__name
       = "#{@user.name}さんのプロフィール"
+      = link_to "登録", new_myblog_blogs_path, data:{"turbolinks" => false}
     .user__profile__intro
       = simple_format(@user.introduction)
     .user__profile__myblog
       - if @own_blogs.present?
         - @own_blogs.each do |blog|
           = link_to "所有ブログ：#{blog.title}", blog.url, class: "user__profile__myblog--content"
+          = link_to "削除", delete_myblog_blog_path(blog.id), data: {confirm: "MyBlogの登録を解除しますか？"}
       - else
         My Blogはありません。
         %p.user__profile__myblog--way 登録方法
         %ul.user__profile__myblog--discribe
           %li ①ブログを登録
-          %li ②プロフィール編集画面で「Myblog」の欄にURLを入力
-          %li ③プロフィール編集画面で「Myblogを登録する」の欄からブログタイトルを選択
-          %li ④ブログ情報を編集・更新
+          %li ②マイページから「Myblogを登録する」へ進む
+          %li ③URLを入力して登録
     - if user_signed_in? && @user.id == current_user.id
       = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
   - if user_signed_in? && @user.id == current_user.id
@@ -26,7 +27,7 @@
           お気に入り個人ブログ
           - @person_blogs.each do |blog|
             %li.user__container__blogs__person--title
-              = link_to blog.title, blog.url
+              = link_to blog.title, blog_path(blog)
             %li.user__container__blogs__person--tag
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
@@ -37,7 +38,7 @@
           お気に入り企業ブログ
           - @campany_blogs.each do |blog|
             %li.user__container__blogs__person--title
-              = link_to blog.title, blog.url
+              = link_to blog.title, blog_path(blog)
             %li.user__container__blogs__person--tag
               - blog.tags.each do |tag|
                 %p.user__container__blogs__person--tag--each.main__index__list--tag--partial

@@ -28,8 +28,14 @@
             = f.label :category
             = f.collection_select :category_id, Category.all, :id, :name
         .field
-          .field-label
-            = f.label :tag
-            = f.collection_check_boxes :tag_ids, Tag.all, :id, :name
+          .field__search--label
+            %label.field__search--label--text タグを追加（クリックで選択）
+          .field__search--form
+            %input.field__search--form--input#tag-form{autocomplete: "off"}
+          #search-result
+        .field
+          .field__include--label
+            %label.field__include--label--text 選択済（クリックで削除）
+        = render "tags/form"
         .actions
           = f.submit "Update", class: 'btn'

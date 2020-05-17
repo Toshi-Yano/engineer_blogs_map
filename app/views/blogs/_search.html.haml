@@ -4,18 +4,24 @@
       .search__left__form--label
         = f.label :title_cont_all, "タイトル"
       .search__left__form--field
-        = f.search_field :title_cont_all, class: "search__left__form--field"
+        = f.search_field :title_cont_all, class: "search__left__form--field--title"
     .search__left__form
       .search__left__form--label
         = f.label :body_cont_all, "紹介文"
       .search__left__form--field
-        = f.search_field :body_cont_all, class: "search__left__form--field"
+        = f.search_field :body_cont_all, class: "search__left__form--field--body"
     .search__left__form
       .search__left__form--label
-        = f.label :tags_id_in, "タグ"
-      .search__left__form--tag
-        = f.collection_check_boxes :tags_id_in, @tags, :id, :name
+        %label.search__left__form--label--text タグを追加（クリックで選択）
+    .search__left__form--tag
+      %input.search__left__form--tag--input.field__search--form--input#search-form{autocomplete: "off"}
+    #search-result
+    .search__left__form
+      .search__left__form--label
+        %label.search__left__form--label--text 選択済（クリックで削除）
+    .search__left__form--tag
+      .search__left__form--tag--pushed.js-new-tags
     .search__left__sort
-      = f.select(:sorts, {"登録が古い順": "created_at asc", "登録が新しい順": "created_at desc"}, {selected: params[:q][:sorts]}, class: "search__left__sort--tab")
+      = f.select(:sorts, {"登録が新しい順": "created_at DESC", "登録が古い順": "created_at ASC"}, {selected: params[:q][:sorts]}, class: "search__left__sort--tab")
     .search__left__action
-      = f.submit "検索", class: "search__left__action--btn"
+      = f.submit "検索", class: "search__left__action--btn", id: "search-submit"

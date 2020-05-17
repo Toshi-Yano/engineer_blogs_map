@@ -5,8 +5,8 @@
       %h5 新規アカウントの作成
       = render "devise/shared/links"
     .account-page__inner--right.user-form
+      = render "layouts/error_user"
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
         .field
           .field-label
             = f.label :name
@@ -17,11 +17,6 @@
             = f.label :email
           .field-input
             = f.email_field :email
-        .field
-          .field-label
-            = f.label :myblog
-          .field-input
-            = f.url_field :myblog
         .field
           .field-label
             = f.label :password

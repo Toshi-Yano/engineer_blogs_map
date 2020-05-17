@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :blogs do
     collection do
       get :search_show
+      get :new_myblog
+      get :create_myblog
+      get :search_myblog
+    end
+    member do
+      get :delete_myblog
     end
   end
   resources :blogs do
@@ -11,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show, :edit, :update]
   resources :like_blogs, only: [:create, :destroy]
+  resources :tags, only: [:index]
 end

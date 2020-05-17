@@ -2,7 +2,7 @@
 .blog
   .blog__left
     .blog__left__title
-      = link_to @blog.title, @blog.url
+      = link_to @blog.title, @blog.url, target: :_blank
     .blog__left__body
       = simple_format(@blog.body)
     .blog__left__person
@@ -14,10 +14,10 @@
         = link_to "#{@regist_user.name}", user_path(@regist_user), class:"blog__left__person--owner"
     .blog__left__edit
       - if user_signed_in? && @blog.owner_id.present? && @blog.owner_id == current_user.id
-        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each"
+        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each", data:{"turbolinks" => false}
         = link_to "削除", blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete
-      - if user_signed_in? && @blog.owner_id.nil? && (@blog.user_id == current_user.id || @blog.url == current_user.myblog)
-        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each"
+      - if user_signed_in? && @blog.owner_id.nil? && @blog.user_id == current_user.id
+        = link_to "編集", edit_blog_path(@blog.id), class: "blog__left__edit--each", data:{"turbolinks" => false}
         = link_to "削除", blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete
     .blog__left__review
     - if user_signed_in?

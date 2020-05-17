@@ -6,13 +6,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "1")
     @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "2")
-    @blogs = Blog.includes(:tags, :blog_tags).where(url: @user.myblog)
     @own_blogs = Blog.includes(:tags, :blog_tags).where(owner_id: @user.id)
   end
 
   def edit
     @user = User.find(params[:id])
-    @blog = Blog.where(url: @user.myblog)
+    @blog = Blog.where(owner_id: @user.id)
   end
 
   def update
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :introduction, :myblog, :blog_id)
+    params.require(:user).permit(:name, :email, :introduction)
   end
 
   def move_to_root
