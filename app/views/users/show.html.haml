@@ -25,23 +25,32 @@
       .user__container__blogs
         %ul.user__container__blogs__person
           お気に入り個人ブログ
-          - @person_blogs.each do |blog|
-            %li.user__container__blogs__person--title
-              = link_to blog.title, blog_path(blog)
-            %li.user__container__blogs__person--tag
-              - blog.tags.each do |tag|
-                %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
-                  = tag.name
-            %li.main__index__list--function#like-icon{ id: blog.id }
-              = render partial: "like_blogs/index", locals: { blog: blog }
+          - if @person_blogs.exists?
+            - @person_blogs.each do |blog|
+              %li.user__container__blogs__person--title
+                = link_to blog.title, blog_path(blog)
+              %li.user__container__blogs__person--tag
+                - blog.tags.each do |tag|
+                  %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
+                    = tag.name
+              %li.main__index__list--function#like-icon{ id: blog.id }
+                = render partial: "like_blogs/index", locals: { blog: blog }
+          - else
+            .user__container__blogs__person--error
+              お気に入り登録されているブログはありません
         %ul.user__container__blogs__person
           お気に入り企業ブログ
-          - @campany_blogs.each do |blog|
-            %li.user__container__blogs__person--title
-              = link_to blog.title, blog_path(blog)
-            %li.user__container__blogs__person--tag
-              - blog.tags.each do |tag|
-                %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
-                  = tag.name
-            %li.main__index__list--function#like-icon{ id: blog.id }
-              = render partial: "like_blogs/index", locals: { blog: blog }
+          - if @campany_blogs.exists?
+            - @campany_blogs.each do |blog|
+              %li.user__container__blogs__person--title
+                = link_to blog.title, blog_path(blog)
+              %li.user__container__blogs__person--tag
+                - blog.tags.each do |tag|
+                  %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
+                    = tag.name
+              %li.main__index__list--function#like-icon{ id: blog.id }
+                = render partial: "like_blogs/index", locals: { blog: blog }
+          - else
+            .user__container__blogs__person--error
+              お気に入り登録されているブログはありません
+              
