@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get :search_myblog
     end
     member do
-      get :delete_myblog
+      delete :delete_myblog
     end
   end
   resources :blogs do

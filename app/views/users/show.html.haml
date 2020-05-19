@@ -1,16 +1,21 @@
+= render 'layouts/notifications'
 = render "blogs/header"
 .user
   .user__profile
     %p.user__profile__name
       = "#{@user.name}さんのプロフィール"
-      = link_to "登録", new_myblog_blogs_path, data:{"turbolinks" => false}
     .user__profile__intro
       = simple_format(@user.introduction)
     .user__profile__myblog
       - if @own_blogs.present?
         - @own_blogs.each do |blog|
-          = link_to "所有ブログ：#{blog.title}", blog.url, class: "user__profile__myblog--content"
-          = link_to "削除", delete_myblog_blog_path(blog.id), data: {confirm: "MyBlogの登録を解除しますか？"}
+          .user__profile__myblog--each
+          %span.user__profile__myblog--each--text 所有ブログ：
+          = link_to "#{blog.title}", blog.url, class: "user__profile__myblog--each--content"
+          = link_to delete_myblog_blog_path(blog.id), data: {confirm: "MyBlogの登録を解除しますか？"}, class: "user__profile__myblog--each--trash", method: :delete do
+            = icon("fa", "trash-alt")
+        .user__profile__myblog--new
+          = link_to "マイブログ登録", new_myblog_blogs_path, data:{"turbolinks" => false}
       - else
         My Blogはありません。
         %p.user__profile__myblog--way 登録方法

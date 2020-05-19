@@ -73,15 +73,16 @@ class BlogsController < ApplicationController
     @blog = Blog.find_by(url: params[:url])
     @blog[:owner_id] = current_user.id
     @blog.save
-    redirect_to root_path
+    redirect_to user_path(current_user)
+    flash[:notice] = "マイブログを登録しました"
   end
 
   def delete_myblog
-    # @blog = Blog.find(params[:format])
     @blog = Blog.find(params[:id])
     @blog[:owner_id] = nil
     @blog.save
-    redirect_to root_path
+    redirect_to user_path(current_user)
+    flash[:notice] = "マイブログを削除しました"
   end
 
   private
