@@ -29,3 +29,4 @@ public/uploads/*
 /config/credentials.yml.enc
 public/material/*
 public/uploads/*
+.DS_Store
