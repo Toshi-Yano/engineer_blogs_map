@@ -4,6 +4,6 @@ class Tag < ApplicationRecord
 
   def self.search(input)
     return nil if input == ""
-    Tag.where(["name LIKE ?", "%#{input}%"]).limit(10)
+    Tag.where(["name LIKE ?", "%#{input}%"]).order("id").limit(10)
   end
 end

@@ -13,12 +13,12 @@
           = link_to "登録ユーザー：#{@regist_user.name}", user_path(@regist_user), class:"blog__left__person--owner"
         .blog__left__edit
           - if user_signed_in? && @blog.owner_id.present? && @blog.owner_id == current_user.id
-            = link_to edit_blog_path(@blog.id), class: "blog__left__edit--each" do
+            = link_to edit_blog_path(@blog.id), class: "blog__left__edit--each", data:{"turbolinks" => false} do
               = icon("fa", "edit")
             = link_to blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete do
               = icon("fa", "trash-alt")
           - if user_signed_in? && @blog.owner_id.nil? && @blog.user_id == current_user.id
-            = link_to edit_blog_path(@blog.id), class: "blog__left__edit--each" do
+            = link_to edit_blog_path(@blog.id), class: "blog__left__edit--each", data:{"turbolinks" => false} do
               = icon("fa", "edit")
             = link_to blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete do
               = icon("fa", "trash-alt")
