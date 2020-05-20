@@ -97,13 +97,11 @@ header {
           &--search {
             font-size: 10px;
           }
-          &--icon {
-            display: block;
-          }
-          > tags-icon {
-            display: -webkit-box;
-          }
         }
+      }
+      &--tag > a {
+        display: -webkit-box;
+        display: block;
       }
       &--function {
         display: flex;
