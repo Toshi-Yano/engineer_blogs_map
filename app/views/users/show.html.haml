@@ -1,4 +1,3 @@
-= render 'layouts/notifications'
 = render "blogs/header"
 .user
   .user__profile
@@ -18,11 +17,8 @@
           = link_to "マイブログ登録", new_myblog_blogs_path, data:{"turbolinks" => false}
       - else
         My Blogはありません。
-        %p.user__profile__myblog--way 登録方法
-        %ul.user__profile__myblog--discribe
-          %li ①ブログを登録
-          %li ②マイページから「Myblogを登録する」へ進む
-          %li ③URLを入力して登録
+        .user__profile__myblog--new
+          = link_to "マイブログ登録", new_myblog_blogs_path, data:{"turbolinks" => false}
     - if user_signed_in? && @user.id == current_user.id
       = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
   - if user_signed_in? && @user.id == current_user.id
