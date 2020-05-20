@@ -85,14 +85,20 @@ header {
       }
       &--tag {
         font-size: 3px;
+        display: -webkit-inline-box;
         &--partial {
           display: inline-block;
           background-color: rgb(218, 223, 230);
+          margin-right: 3px;
+          margin-bottom: 3px;
           padding: 3px 5px;
           border-radius: 8px;
           cursor: pointer;
           &--search {
             font-size: 10px;
+          }
+          &--icon {
+            display: block;
           }
         }
       }
