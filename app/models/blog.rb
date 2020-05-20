@@ -9,7 +9,7 @@ class Blog < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true, length: {maximum: 100}
   validates :url, presence: true, uniqueness: true
-  validates :body, presence: true, length: {maximum: 200}
+  validates :body, presence: true, length: {maximum: 400}
   validates :tags, length: {maximum: 10}
 
   def liked_by?(user)

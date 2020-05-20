@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:show, :edit, :update, :destroy]
 
   def index
-    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "1").limit(10)
+    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "3").limit(10)
     @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "2").limit(10)
     @new_blogs = Blog.includes(:tags, :blog_tags).order("created_at DESC").limit(10)
   end
