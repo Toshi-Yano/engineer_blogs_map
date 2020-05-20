@@ -38,6 +38,16 @@ Qiita・teratail・StackOverflowなど、プログラミングの情報ソース
 - タグのインクリメンタルサーチ
 - レビュー投稿
 
+![top-image](https://user-images.githubusercontent.com/62419040/82435702-a677d380-9acf-11ea-93b5-db6200aef2f3.jpg)
+![myblog_create](https://user-images.githubusercontent.com/62419040/82435715-ac6db480-9acf-11ea-8561-ec944d62fc1a.gif)
+![like_blog_action](https://user-images.githubusercontent.com/62419040/82435748-b8f20d00-9acf-11ea-9747-bde06a375883.gif)
+[ER.pdf](https://github.com/Toshi-Yano/engineer_blogs_map/files/4656175/ER.pdf)
+![ER](https://user-images.githubusercontent.com/62419040/82435780-c4453880-9acf-11ea-94b2-4cee199ece5f.jpeg)
+![blog_show](https://user-images.githubusercontent.com/62419040/82435782-c4453880-9acf-11ea-8d54-072cf7366c28.jpg)
+![blog_search](https://user-images.githubusercontent.com/62419040/82435783-c4ddcf00-9acf-11ea-8b85-027dda6a8918.gif)
+![blog_index](https://user-images.githubusercontent.com/62419040/82435799-cb6c4680-9acf-11ea-9f23-55644aa24909.jpg)
+
+
 
 ## ユーザー登録(gem:devise)
 
