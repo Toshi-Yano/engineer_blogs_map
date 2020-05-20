@@ -45,6 +45,7 @@ Qiita・teratail・StackOverflowなど、プログラミングの情報ソース
 <p>&nbsp</p>
 
 ## お気に入り機能（非同期）
+![myblog_create](https://user-images.githubusercontent.com/62419040/82429057-4df00880-9ac6-11ea-8ffd-67eca915d67b.gif)
 
 <p>&nbsp</p>
 
