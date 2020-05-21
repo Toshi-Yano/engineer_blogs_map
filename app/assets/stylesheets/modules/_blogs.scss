@@ -58,7 +58,7 @@ header {
 .main {
   height: 100%;
   padding: 20px;
-  border-bottom:  1px solid rgb(88, 84, 84);
+  border-bottom:  1px solid #ddd;
   &__index {
     height: 100%;
     width: 100%;
@@ -134,10 +134,11 @@ header {
     width: 50%;
     &--container {
       width: 80%;
-      margin: 0 auto;
+      margin: 0 auto 5px;
       padding: 20px;
       background-color: white;
-      border-bottom: 5px solid #F6F6F4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
     }
     &__title {
       font-size: 20px;
@@ -186,10 +187,15 @@ header {
     margin: 0 auto 25px;
     padding-top: 10px;
     background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     &__title {
+      width: 35%;
       text-align: center;
+      margin: 0 auto;
       font-size: 20px;
       font-weight: bold;
+      border-bottom: 1px solid #DDDDDD;
     }
     &__form {
       width: 100%;
@@ -233,6 +239,8 @@ header {
     padding: 0 20px 20px;
     overflow: scroll;
     background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     &__title {
       font-size: 20px;
       font-weight: bold;

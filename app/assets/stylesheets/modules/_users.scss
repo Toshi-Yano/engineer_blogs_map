@@ -10,8 +10,8 @@ a:hover {
 .account-page {
   padding-top: 70px;
   .account-page__inner {
-    width: 980px;
-    margin: 30px auto;
+    width: 60%;
+    margin: 20px auto;
     padding: 30px;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -144,7 +144,7 @@ a:hover {
     }
   }
   &__title {
-    width: 60%;
+    width: 80%;
     margin: 0 auto 10px;
     border-bottom: 1px solid #DDDDDD;
     &--text {
@@ -176,81 +176,5 @@ a:hover {
     margin: 0;
     padding: 0;
     font-size: 13px;
-  }
-}
-
-.user {
-  padding: 90px 20px 20px;
-  display: flex;
-  &__profile {
-    height: 100vh;
-    width: 100%;
-    margin-right: 30px;
-    &__name {
-      text-align: center;
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-    &__intro {
-      line-height: 28px;
-      margin-bottom: 15px;
-      padding: 10px;
-    }
-    &__myblog {
-      // margin-bottom: 15px;
-      padding: 10px;
-      &--content {
-      }
-      &--way {
-        font-size: 18px;
-        margin: 5px 0;
-      }
-      &--discribe {
-      }
-    }
-    &__edit {
-      padding: 10px;
-    }
-  }
-  &__container {
-    width: 100%;
-    display: flex;
-    &__blogs {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: scroll;
-      &__person {
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 30px;
-        li {
-          font-size: 16px;
-          text-align: left;
-        }
-        &--tag--each {
-          font-size: 8px;
-        }
-        &--error {
-          font-size: 20px;
-        }
-      }
-      &__company {
-        font-size: 30px;
-        text-align: center;
-        li {
-          font-size: 16px;
-          text-align: left;
-        }
-      }
-    }
-    &__reviews {
-      margin-top: 20px;
-      font-size: 30px;
-      text-align: center;
-      li {
-        font-size: 16px;
-      }
-    }
   }
 }

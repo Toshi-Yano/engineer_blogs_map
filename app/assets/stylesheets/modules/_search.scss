@@ -7,15 +7,23 @@
   padding-top: 70px;
   display: flex;
   &__left {
-    height: 100vh;
-    width: 33%;
-    padding: 20px;
-    padding-right: 0;
+    height: 550px;
+    width: 30%;
+    margin: 20px auto 0;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
     &__form {
       width: 100%;
       margin-bottom: 10px;
+      &--label {
+        text-align: start;
+        margin-left: 15%;
+      }
       &--field {
         &--title {
           @include search-form;
@@ -26,6 +34,14 @@
         &--tag {
           @include search-form;
         }
+      }
+      &--result {
+        width: 70%;
+      }
+      &--tag--pushed {
+        // width: 50%;
+        margin: 0 auto;
+        margin-left: 15%;
       }
     }
     &__sort {
@@ -39,14 +55,16 @@
     }
     &__action--btn {
       width: 70%;
-      height: 30px;
+      height: 35px;
       text-align: center;
-      background-color: #F8F8F8;
+      font-size: 16px;
+      color: white;
+      background-color: #194578;
     }
   }
   &__right {
     height: 100vh;
-    width: 67%;
+    width: 60%;
     padding: 10px 20px 20px;
     overflow: scroll;
     &__index--each {

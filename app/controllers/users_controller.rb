@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "3")
-    @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id},category_id: "2")
+    @blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id}).page(params[:page]).per(10)
     @own_blogs = Blog.where(owner_id: @user.id)
   end
 

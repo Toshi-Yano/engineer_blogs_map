@@ -24,10 +24,10 @@
             = f.text_area :body
         .field
           .field-label
-            = f.label :個人ブログ
             = f.radio_button(:category_id, "3", checked: true)
-            = f.label :企業ブログ
+            = f.label :個人ブログ
             = f.radio_button(:category_id, "2")
+            = f.label :企業ブログ
         .field
           .field-label
             %label.field__search--label--text タグを追加（クリックで選択、最大10個まで）
