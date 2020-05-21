@@ -11,11 +11,13 @@ a:hover {
   padding-top: 70px;
   .account-page__inner {
     width: 980px;
-    margin: 60px auto;
-    padding: 60px;
+    margin: 30px auto;
+    padding: 30px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
 
     .account-page__inner--left, .account-page__inner--right {
       float: left;
@@ -88,6 +90,11 @@ a:hover {
     }
   }
 
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+
   .btn {
     display: inline-block;
     height: 50px;
@@ -97,13 +104,14 @@ a:hover {
     text-align: center;
     border: none;
     border-radius: 2px;
+    margin: 0 auto;
   }
 
   input[type='submit'] {
     float: left;
     margin-top: 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: #194578;
   }
 
   .field-label {
@@ -128,6 +136,15 @@ a:hover {
         width: 5px;
         background-color: #d65f4c;
       }
+    }
+  }
+  &__title {
+    width: 60%;
+    margin: 0 auto 10px;
+    border-bottom: 1px solid #DDDDDD;
+    &--text {
+      font-size: 30px;
+      text-align: center;
     }
   }
 }
