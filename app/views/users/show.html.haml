@@ -5,7 +5,11 @@
       %p.user__left__profile__name
         = @user.name
       .user__left__profile__intro
-        = simple_format(@user.introduction)
+        - if @user.introduction.present?
+          = simple_format(@user.introduction)
+        - else
+          = icon("fa", "exclamation-triangle")
+          %span 自己紹介が未登録です
       .user__left__profile__myblog
         - if @own_blogs.present?
           - @own_blogs.each do |own_blog|
