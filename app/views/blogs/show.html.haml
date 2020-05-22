@@ -22,8 +22,8 @@
               = icon("fa", "edit")
             = link_to blog_path(@blog.id), data: {confirm: "削除しますか？"}, class: "blog__left__edit--each", method: :delete do
               = icon("fa", "trash-alt")
-    .blog__review
-      - if user_signed_in?
+    - if user_signed_in?
+      .blog__review
         .blog__review__title
           .blog__review__title--text レビュー投稿
         = form_with(model: [@blog, @review], local: true) do |f|
