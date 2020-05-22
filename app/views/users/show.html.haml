@@ -18,7 +18,7 @@
         - else
           .user__left__profile__myblog--caution
             = icon("fa", "exclamation-triangle")
-            %span.uset__left__profile__myblog--caution--text MyBlog未登録です
+            %span.uset__left__profile__myblog--caution--text MyBlogが未登録です
       - if user_signed_in? && @user.id == current_user.id
         .user__left__profile__myblog--registration
           = link_to new_myblog_blogs_path, class: "user__left__profile__myblog--registration--icon", data:{"turbolinks" => false} do
