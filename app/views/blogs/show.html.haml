@@ -24,7 +24,8 @@
               = icon("fa", "trash-alt")
     .blog__review
       - if user_signed_in?
-        .blog__review__title レビュー投稿
+        .blog__review__title
+          .blog__review__title--text レビュー投稿
         = form_with(model: [@blog, @review], local: true) do |f|
           .blog__review__form
             .blog__review__form--label

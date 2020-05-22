@@ -1,12 +1,10 @@
 = render "header"
 .account-page
   .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Edit Account
-      %h5 アカウントの編集
-      = link_to "ログアウト",destroy_user_session_path, method: :delete, class: 'btn'
-      = link_to "トップページに戻る", :back, class: 'btn'
     .account-page__inner--right.user-form
+      .account-page__title
+        %p.account-page__title--text
+          ブログ情報編集
       = render "layouts/error_blog"
       = form_with(model: @blog, local: true) do |f|
         .field
@@ -26,17 +24,19 @@
             = f.text_area :body
         .field
           .field-label
-            = f.label :category
-            = f.collection_select :category_id, Category.all, :id, :name
+            = f.radio_button(:category_id, "3", checked: true)
+            = f.label :個人ブログ
+            = f.radio_button(:category_id, "2")
+            = f.label :企業ブログ
         .field
-          .field__search--label
+          .field-label
             %label.field__search--label--text タグを追加（クリックで選択、最大10個まで）
           .field__search--form
             %input.field__search--form--input#tag-form{autocomplete: "off"}
           #search-result
         .field
-          .field__include--label
+          .field-label--result
             %label.field__include--label--text 選択済（クリックで削除）
         = render "tags/form"
         .actions
-          = f.submit "Update", class: 'btn'
+          = f.submit "登録", class: 'btn'

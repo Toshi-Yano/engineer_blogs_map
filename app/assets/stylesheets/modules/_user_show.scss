@@ -1,0 +1,84 @@
+.user {
+  padding-top: 70px;
+  display: flex;
+  &__left {
+    width: 30%;
+    height: 100%;
+    margin: 20px auto 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    &__profile {
+      width: 100%;
+      &__name {
+        width: auto;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 30px;
+        border-bottom: 1px solid #DDDDDD;
+      }
+      &__intro {
+        padding: 10px 0;
+        font-size: 15px;
+        line-height: 26px;
+        border-bottom: 1px solid #DDDDDD;
+      }
+      &__edit {
+        padding-bottom: 10px;
+        font-size: 15px;
+        line-height: 26px;
+        border-bottom: 1px solid #DDDDDD;
+        &--icon > i {
+          margin-right: 5px;
+        }
+      }
+      &__myblog {
+        padding: 10px 0 0;
+        font-size: 15px;
+        line-height: 26px;
+        &--registration--icon > i {
+          margin-right: 5px;
+        }
+        &--caution > i {
+          margin-right: 3px;
+        }
+      }
+    }
+  }
+  &__right {
+    width: 60%;
+    padding: 20px 10px;
+    display: flex;
+    overflow: scroll;
+    &__blogs {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: scroll;
+      &__title {
+        width: 50%;
+        margin: 20px auto 10px;
+        font-size: 30px;
+        text-align: center;
+        border-bottom: 1px solid #DDDDDD;
+      }
+      &__each {
+        width: 100%;
+        margin: 10px 0;
+        border-bottom: 1px solid #DDDDDD;
+        font-size: 16px;
+        text-align: left;
+        &--tag--each {
+          font-size: 8px;
+        }
+        &--error {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

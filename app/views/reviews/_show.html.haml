@@ -1,6 +1,6 @@
 - if @reviews.present?
   .blog__right__title
-    レビュー一覧
+    レビュー
   - @reviews.each do |review|
     .blog__right__review
       .blog__right__review__top
@@ -23,4 +23,4 @@
     = paginate(@reviews)
 - else
   .blog__right__title
-    まだレビューはありません
+    まだレビューは投稿されていません

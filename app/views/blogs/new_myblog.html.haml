@@ -1,7 +1,7 @@
 = render "header"
 .myblog
   .myblog__main
-    %p.myblog__main__title マイブログ登録
+    %p.myblog__main__title MyBlog登録
     .myblog__main__form
       = form_with(url: create_myblog_blogs_path, local: true, method: :get, class: "myblog__main__form--field") do |f|
         %p.myblog__main__form--text ブログURLを入力して下さい

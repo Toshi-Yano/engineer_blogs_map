@@ -53,7 +53,7 @@ class BlogsController < ApplicationController
     else
       params[:q] = {sorts: "created_at DESC"}
       @q = Blog.ransack(params[:q])
-      @blogs = @q.result.includes(:tags, :blog_tags)
+      @blogs = @q.result.includes(:tags, :blog_tags).limit(30)
     end
     @tags = Tag.all
   end
@@ -74,7 +74,7 @@ class BlogsController < ApplicationController
     @blog[:owner_id] = current_user.id
     @blog.save
     redirect_to user_path(current_user)
-    flash[:notice] = "マイブログを登録しました"
+    flash[:notice] = "MyBlogを登録しました"
   end
 
   def delete_myblog
@@ -82,7 +82,7 @@ class BlogsController < ApplicationController
     @blog[:owner_id] = nil
     @blog.save
     redirect_to user_path(current_user)
-    flash[:notice] = "マイブログを削除しました"
+    flash[:notice] = "MyBlogを削除しました"
   end
 
   private

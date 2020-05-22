@@ -8,7 +8,7 @@ $(function() {
           <p class ="field__tag--each--name main__index__list--tag--partial search__field__tag--each--btn--add" data-tag-id="${tag.id}" data-tag-name="${tag.name}">${tag.name}</p>
         </div>
         `;
-        $("#search-result").append(html);
+        $("#search-result__show").append(html);
     }
     // 追加候補が無かった場合の表示
     function addNoTagView() {
@@ -17,7 +17,7 @@ $(function() {
           <p class ="field__tag--each--false">一致するタグが見つかりません</p>
         </div>
       `;
-      $("#search-result").append(html);
+      $("#search-result__show").append(html);
     }
     // 選択済タグの一覧表示
     function addDeleteTag(name, id) {
@@ -43,7 +43,7 @@ $(function() {
         dataType: "json"
       })
       .done(function(tags){
-        $("#search-result").empty();
+        $("#search-result__show").empty();
 
         if (tags.length !== 0) {
           tags.forEach(function(tag) {

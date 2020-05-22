@@ -1,57 +1,55 @@
 = render "blogs/header"
 .user
-  .user__profile
-    %p.user__profile__name
-      = "#{@user.name}さんのプロフィール"
-    .user__profile__intro
-      = simple_format(@user.introduction)
-    .user__profile__myblog
-      - if @own_blogs.present?
-        - @own_blogs.each do |blog|
-          .user__profile__myblog--each
-          %span.user__profile__myblog--each--text 所有ブログ：
-          = link_to "#{blog.title}", blog.url, class: "user__profile__myblog--each--content"
-          = link_to delete_myblog_blog_path(blog.id), data: {confirm: "MyBlogの登録を解除しますか？"}, class: "user__profile__myblog--each--trash", method: :delete do
-            = icon("fa", "trash-alt")
-        .user__profile__myblog--new
-          = link_to "マイブログ登録", new_myblog_blogs_path, data:{"turbolinks" => false}
-      - else
-        My Blogはありません。
-        .user__profile__myblog--new
-          = link_to "マイブログ登録", new_myblog_blogs_path, data:{"turbolinks" => false}
-    - if user_signed_in? && @user.id == current_user.id
-      = link_to "プロフィールを編集", edit_user_path(current_user), class: "user__profile__edit"
+  .user__left
+    .user__left__profile
+      %p.user__left__profile__name
+        = @user.name
+      .user__left__profile__intro
+        = simple_format(@user.introduction)
+      .user__left__profile__myblog
+        - if @own_blogs.present?
+          - @own_blogs.each do |own_blog|
+            .user__left__profile__myblog--each
+              %span.user__left__profile__myblog--each--text MyBlog：
+              = link_to "#{own_blog.title}", blog_path(own_blog.id), class: "user__profile__myblog--each--content"
+              - if user_signed_in? && @user.id == current_user.id
+                = link_to delete_myblog_blog_path(own_blog.id), class: "user__profile__myblog--each--trash", data: {confirm: "MyBlogの登録を解除しますか？"}, method: :delete do
+                  = icon("fa", "trash-alt")
+        - else
+          .user__left__profile__myblog--caution
+            = icon("fa", "exclamation-triangle")
+            %span.uset__left__profile__myblog--caution--text MyBlog未登録です
+      - if user_signed_in? && @user.id == current_user.id
+        .user__left__profile__myblog--registration
+          = link_to new_myblog_blogs_path, class: "user__left__profile__myblog--registration--icon", data:{"turbolinks" => false} do
+            = icon("fa", "user-plus")
+            %span<>
+            %span.user__left__profile__myblog--text MyBlog登録
+        .user__left__profile__edit
+          = link_to edit_user_path(current_user), class: "user__left__profile__edit--icon" do
+            = icon("fa", "edit")
+            %span<>
+            %span.user__left__profile__edit--icon--text プロフィール編集
   - if user_signed_in? && @user.id == current_user.id
-    .user__container
-      .user__container__blogs
-        %ul.user__container__blogs__person
-          お気に入り個人ブログ
-          - if @person_blogs.exists?
-            - @person_blogs.each do |blog|
-              %li.user__container__blogs__person--title
-                = link_to blog.title, blog_path(blog)
-              %li.user__container__blogs__person--tag
-                - blog.tags.each do |tag|
-                  %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
+    .user__right
+      .user__right__blogs
+        .user__right__blogs__title
+          %p.user__right__blogs__title--text お気に入り登録ブログ
+        - if @like_blogs.exists?
+          - @like_blogs.each do |like_blog|
+            .user__right__blogs__each
+              .user__right__blogs__each--title
+                = link_to like_blog.title, blog_path(like_blog)
+              .user__right__blogs__each--tag
+                %a.tags-icon
+                  = icon("fas", "tags", class: "main__index__list--tag--icon")
+                - like_blog.tags.each do |tag|
+                  %p.user__right__blogs__each--tag--each.main__index__list--tag--partial
                     = tag.name
-              %li.main__index__list--function#like-icon{ id: blog.id }
-                = render partial: "like_blogs/index", locals: { blog: blog }
-          - else
-            .user__container__blogs__person--error
-              お気に入り登録されているブログはありません
-        %ul.user__container__blogs__person
-          お気に入り企業ブログ
-          - if @campany_blogs.exists?
-            - @campany_blogs.each do |blog|
-              %li.user__container__blogs__person--title
-                = link_to blog.title, blog_path(blog)
-              %li.user__container__blogs__person--tag
-                - blog.tags.each do |tag|
-                  %p.user__container__blogs__person--tag--each.main__index__list--tag--partial
-                    = tag.name
-              %li.main__index__list--function#like-icon{ id: blog.id }
-                = render partial: "like_blogs/index", locals: { blog: blog }
-          - else
-            .user__container__blogs__person--error
-              お気に入り登録されているブログはありません
-              
+              .main__index__list--function#like-icon{ id: like_blog.id }
+                = render partial: "like_blogs/index", locals: { blog: like_blog }
+          .paginate
+            = paginate(@like_blogs)
+        - else
+          .user__right__blogs__each--error
+            お気に入りブログはありません
