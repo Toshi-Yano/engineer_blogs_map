@@ -6,37 +6,4 @@
         %p.account-page__title--text
           新規ブログ共有
       = render "layouts/error_blog"
-      = form_with(model: @blog, local: true) do |f|
-        .field
-          .field-label
-            = f.label :name, "TITLE"
-          .field-input
-            = f.text_field :title
-        .field
-          .field-label
-            = f.label :name, "URL"
-          .field-input
-            = f.url_field :url
-        .field
-          .field-label
-            = f.label :紹介文
-          .field-input
-            = f.text_area :body
-        .field
-          .field-label
-            = f.radio_button(:category_id, "3", checked: true)
-            = f.label :個人ブログ
-            = f.radio_button(:category_id, "2")
-            = f.label :企業ブログ
-        .field
-          .field-label
-            %label.field__search--label--text タグを追加（クリックで選択、最大10個まで）
-          .field__search--form
-            %input.field__search--form--input#tag-form{autocomplete: "off"}
-          #search-result
-        .field
-          .field-label--result
-            %label.field__include--label--text 選択済（クリックで削除）
-        = render "tags/form"
-        .actions
-          = f.submit "登録", class: 'btn'
+      = render "form"
