@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review.destroy
+    @review.destroy
     redirect_to blog_path(params[:id])
   end
 
