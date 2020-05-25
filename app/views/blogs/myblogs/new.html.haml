@@ -1,9 +1,8 @@
-= render "header"
 .myblog
   .myblog__main
     %p.myblog__main__title MyBlog登録
     .myblog__main__form
-      = form_with(url: create_myblog_blogs_path, local: true, method: :get, class: "myblog__main__form--field") do |f|
+      = form_with(url: blogs_myblogs_path, local: true, method: :post, class: "myblog__main__form--field") do |f|
         %p.myblog__main__form--text ブログURLを入力して下さい
         = f.url_field :url, class: "myblog__main__form--input", autocomplete: "off", autofocus: true
         .myblog__main__form--result#myblog__main__form--result

@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   def create
     review = Review.create(review_params)
     redirect_to blog_path(review.blog.id)
+    flash[:notice] = "レビューの投稿が完了しました"
   end
   
   def edit
@@ -14,11 +15,13 @@ class ReviewsController < ApplicationController
     review = Review.find(params[:id])
     review.update(review_params)
     redirect_to blog_path(params[:blog_id])
+    flash[:notice] = "レビューの編集が完了しました"
   end
 
   def destroy
     @review.destroy
     redirect_to blog_path(params[:id])
+    flash[:notice] = "レビューの削除が完了しました"
   end
 
   private

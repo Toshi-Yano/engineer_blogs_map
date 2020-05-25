@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     if @blog.save
     redirect_to root_path
+    flash[:notice] = "ブログの登録が完了しました"
     else
     render :new
     end
@@ -33,6 +34,7 @@ class BlogsController < ApplicationController
   def update
     if @blog.update(update_params)
     redirect_to blog_path(@blog.id)
+    flash[:notice] = "ブログの編集が完了しました"
     else
     render :edit
     end
@@ -41,6 +43,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     redirect_to root_path
+    flash[:notice] = "ブログの削除が完了しました"
   end
 
   def search_show
@@ -55,33 +58,6 @@ class BlogsController < ApplicationController
       @blogs = @q.result.includes(:tags, :blog_tags).limit(30)
     end
     @categories = Category.all
-  end
-
-  def search_myblog
-    @blogs = Blog.search(params[:keyword])
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
-
-  def new_myblog
-  end
-
-  def create_myblog
-    @blog = Blog.find_by(url: params[:url])
-    @blog[:owner_id] = current_user.id
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogを登録しました"
-  end
-
-  def delete_myblog
-    @blog = Blog.find(params[:id])
-    @blog[:owner_id] = nil
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogを削除しました"
   end
 
   private

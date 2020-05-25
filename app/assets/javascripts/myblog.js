@@ -24,7 +24,7 @@ $(function() {
       let input = $(".myblog__main__form--input").val();
       $.ajax({
         type: "GET",
-        url: "/blogs/search_myblog",
+        url: "/blogs/myblogs",
         data: {keyword: input},
         dataType: "json"
       })
@@ -33,7 +33,6 @@ $(function() {
         if (blogs.length !== 0) {
           blogs.forEach(function(blog) {
             showBlog(blog);
-            // console.log(blog)
           });
         } else if (input.length == 0) {
           return false;

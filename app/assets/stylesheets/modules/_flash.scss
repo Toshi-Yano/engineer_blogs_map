@@ -1,17 +1,27 @@
 .notification {
   .notice {
-    background-color: #38AEF0;
+    width: 30%;
+    background-color: #092544;
     font-size: 16px;
     color: white;
     text-align: center;
     padding: 1em 0;
+    position: fixed;
+    z-index: 99;
+    left: 33%;
+    line-height: 36px;
   }
   
   .alert {
+    width: 30%;
     background-color: #F35500;
     font-size: 16px;
     color: white;
     text-align: center;
     padding: 1em 0;
+    position: fixed;
+    z-index: 99;
+    left: 33%;
+    line-height: 36px;
   }
 }
