@@ -3,8 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:show, :edit, :update, :destroy]
 
   def index
-    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "3").limit(10)
-    @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "2").limit(10)
+    @blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").limit(10)
     @new_blogs = Blog.includes(:tags, :blog_tags).order("created_at DESC").limit(10)
   end
 
@@ -55,7 +54,7 @@ class BlogsController < ApplicationController
       @q = Blog.ransack(params[:q])
       @blogs = @q.result.includes(:tags, :blog_tags).limit(30)
     end
-    @tags = Tag.all
+    @categories = Category.all
   end
 
   def search_myblog
