@@ -14,8 +14,8 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-    redirect_to root_path
-    flash[:notice] = "ブログの登録が完了しました"
+      redirect_to root_path
+      flash[:notice] = "ブログの登録が完了しました"
     else
     render :new
     end
@@ -33,8 +33,8 @@ class BlogsController < ApplicationController
 
   def update
     if @blog.update(update_params)
-    redirect_to blog_path(@blog.id)
-    flash[:notice] = "ブログの編集が完了しました"
+      redirect_to blog_path(@blog.id)
+      flash[:notice] = "ブログの編集が完了しました"
     else
     render :edit
     end

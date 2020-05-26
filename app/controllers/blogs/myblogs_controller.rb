@@ -14,17 +14,25 @@ class Blogs::MyblogsController < ApplicationController
   def create
     @blog = Blog.find_by(url: params[:url])
     @blog[:owner_id] = current_user.id
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogの登録が完了しました"
+    if @blog.save
+      redirect_to user_path(current_user)
+      flash[:notice] = "MyBlogの登録が完了しました"
+    else
+      render :new
+      flash[:alert] = "MyBlogの登録に失敗しました"
+    end
   end
 
   def destroy
     @blog = Blog.find(params[:id])
     @blog[:owner_id] = nil
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogの削除が完了しました"
+    if @blog.save
+      redirect_to user_path(current_user)
+      flash[:notice] = "MyBlogの削除が完了しました"
+    else
+      redirect_to user_path(current_user)
+      flash[:alert] = "MyBlogの削除に失敗しました"
+    end
   end
 
 end
