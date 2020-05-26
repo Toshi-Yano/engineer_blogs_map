@@ -7,8 +7,16 @@ $(function() {
           <span class="myblog__main__form--result-title">${blog.title}</span>
           <p class="myblog__main__form--result-text">上記のブログで間違いなければ登録ボタンを押して下さい。</p>
         </div>
+        <input type="submit" name="commit" value="登録" class="myblog__main__form--btn" data-disable-with="登録">
         `;
         $("#myblog__main__form--result").append(html);
+    }
+
+    function errorBlog() {
+      let html = `
+      <p class="myblog__main__form--result-text">このブログの所有者は既に登録されています。</p>
+      `;
+      $("#myblog__main__form--result").append(html);
     }
 
     function showNoBlog() {
@@ -24,7 +32,7 @@ $(function() {
       let input = $(".myblog__main__form--input").val();
       $.ajax({
         type: "GET",
-        url: "/blogs/search_myblog",
+        url: "/blogs/myblogs",
         data: {keyword: input},
         dataType: "json"
       })
@@ -32,8 +40,11 @@ $(function() {
         $(".myblog__main__form--result").empty();
         if (blogs.length !== 0) {
           blogs.forEach(function(blog) {
+          if (blog.owner_id == null) {
             showBlog(blog);
-            // console.log(blog)
+          } else {
+            errorBlog();
+          }
           });
         } else if (input.length == 0) {
           return false;

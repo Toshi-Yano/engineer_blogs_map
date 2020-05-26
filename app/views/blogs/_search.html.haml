@@ -12,6 +12,11 @@
         = f.search_field :body_cont_all, class: "search__left__form--field--body"
     .search__left__form
       .search__left__form--label
+        = f.label :category_id_in, "カテゴリー"
+      .search__left__form--field--category
+        = f.collection_check_boxes :category_id_in, @categories, :id, :name, class: "search__left__form--field--category"
+    .search__left__form
+      .search__left__form--label
         %label.search__left__form--label--text タグを追加（クリックで選択）
     .search__left__form--tag
       %input.search__left__form--field--tag.field__search--form--input#search-form{autocomplete: "off"}

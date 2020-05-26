@@ -1,23 +1,8 @@
 %section.main
   .main__index
     %ul.main__index__list
-      %p.main__index__list--category 人気個人ブログ
-      - @person_blogs.each_with_index do |blog, rank|
-        %li.main__index__list--title
-          %span.main__index__list--title--rank
-            = "#{rank + 1}位\b"
-          = link_to blog.title, blog_path(blog)
-        %li.main__index__list--tag
-          %a.tags-icon
-            = icon("fas", "tags", class: "main__index__list--tag--icon")
-          - blog.tags.each do |tag|
-            %p.main__index__list--tag--partial
-              = tag.name
-        %li.main__index__list--function#like-icon{ id: blog.id }
-          = render partial: "like_blogs/index", locals: { blog: blog }
-    %ul.main__index__list
-      %p.main__index__list--category 人気企業ブログ
-      - @campany_blogs.each_with_index do |blog, rank|
+      %p.main__index__list--category 人気ブログ
+      - @blogs.each_with_index do |blog, rank|
         %li.main__index__list--title
           %span.main__index__list--title--rank
             = "#{rank + 1}位\b"

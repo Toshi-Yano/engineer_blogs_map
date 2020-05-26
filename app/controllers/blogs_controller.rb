@@ -3,8 +3,7 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:show, :edit, :update, :destroy]
 
   def index
-    @person_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "3").limit(10)
-    @campany_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").where(category_id: "2").limit(10)
+    @blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).group(:blog_id).order("count(like_user_id) DESC").limit(10)
     @new_blogs = Blog.includes(:tags, :blog_tags).order("created_at DESC").limit(10)
   end
 
@@ -15,9 +14,11 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-    redirect_to root_path
+      redirect_to root_path
+      flash[:notice] = "ブログの登録が完了しました"
     else
-    render :new
+      render :new
+      flash[:alert] = "ブログの登録に失敗しました"
     end
   end
 
@@ -32,16 +33,22 @@ class BlogsController < ApplicationController
   end
 
   def update
-    if @blog.update(update_params)
-    redirect_to blog_path(@blog.id)
+    if @blog.update(blog_params)
+      redirect_to blog_path(@blog.id)
+      flash[:notice] = "ブログの編集が完了しました"
     else
-    render :edit
+      render :edit
+      flash[:alert] = "ブログの編集に失敗しました"
     end
   end
 
   def destroy
-    @blog.destroy
-    redirect_to root_path
+    if @blog.destroy
+      redirect_to root_path
+      flash[:notice] = "ブログの削除が完了しました"
+    else
+      flash[:alert] = "ブログの削除に失敗しました"
+    end 
   end
 
   def search_show
@@ -55,47 +62,12 @@ class BlogsController < ApplicationController
       @q = Blog.ransack(params[:q])
       @blogs = @q.result.includes(:tags, :blog_tags).limit(30)
     end
-    @tags = Tag.all
-  end
-
-  def search_myblog
-    @blogs = Blog.search(params[:keyword])
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
-
-  def new_myblog
-  end
-
-  def create_myblog
-    @blog = Blog.find_by(url: params[:url])
-    @blog[:owner_id] = current_user.id
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogを登録しました"
-  end
-
-  def delete_myblog
-    @blog = Blog.find(params[:id])
-    @blog[:owner_id] = nil
-    @blog.save
-    redirect_to user_path(current_user)
-    flash[:notice] = "MyBlogを削除しました"
+    @categories = Category.all
   end
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:blog_id]).merge(user_id: current_user.id)
-  end
-
-  def update_params
-    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:id, :blog_id, :_destroy]).merge(user_id: current_user.id)
-  end
-
-  def myblog_params
-    params.require(:blog).permit(:url)
+    params.require(:blog).permit(:title, :url, :body, :category_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_blogs
@@ -103,7 +75,7 @@ class BlogsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
 
 end
