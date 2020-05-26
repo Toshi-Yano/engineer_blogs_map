@@ -4,7 +4,7 @@
 <p>&nbsp</p>
 
 ## 本番環境URL
-http://54.95.87.200
+http://engineerblogs-map.com/
 
 ## テストユーザー
 メールアドレス　test@gmail.com<br>パスワード　1111aaaa
