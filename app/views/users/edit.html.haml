@@ -10,7 +10,7 @@
           .field-label
             = f.label :name
           .field-input
-            = f.text_field :name, autofocus: true
+            = f.text_field :name, placeholder: "最大16文字", autofocus: true
         .field
           .field-label
             = f.label :email
@@ -20,6 +20,6 @@
           .field-label
             = f.label :introduction
           .field-input
-            = f.text_area :introduction
+            = f.text_area :introduction, placeholder: "最大200文字"
         .actions
           = f.submit "登録", class: 'btn'
