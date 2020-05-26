@@ -1,33 +1,32 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
-  before_action :move_to_root, only: [:edit, :update]
+  before_action :set_user
 
   def show
-    @user = User.find(params[:id])
     @like_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id}).page(params[:page]).per(10)
     @own_blogs = Blog.where(owner_id: @user.id)
   end
 
   def edit
-    @user = User.find(params[:id])
-    @blog = Blog.where(owner_id: @user.id)
   end
-
+  
   def update
     if @user.update(user_params)
       redirect_to user_path(current_user)
+      flash[:notice] = "ユーザー情報を更新しました"
     else
       render :edit
+      flash[:alert] = "ユーザー情報の更新に失敗しました"
     end
   end
 
   private
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:name, :email, :introduction)
   end
-
-  def move_to_root
-    @user = User.find(params[:id])
-    redirect_to root_path unless @user.id == current_user.id
-  end
+  
 end

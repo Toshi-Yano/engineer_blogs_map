@@ -1,4 +1,5 @@
 class Blogs::MyblogsController < ApplicationController
+  before_action :move_to_index
 
   def index
     @blogs = Blog.search(params[:keyword])
@@ -33,6 +34,11 @@ class Blogs::MyblogsController < ApplicationController
       redirect_to user_path(current_user)
       flash[:alert] = "MyBlogの削除に失敗しました"
     end
+  end
+
+  private
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
   end
 
 end

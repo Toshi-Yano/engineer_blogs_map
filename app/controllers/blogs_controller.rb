@@ -17,7 +17,8 @@ class BlogsController < ApplicationController
       redirect_to root_path
       flash[:notice] = "ブログの登録が完了しました"
     else
-    render :new
+      render :new
+      flash[:alert] = "ブログの登録に失敗しました"
     end
   end
 
@@ -32,18 +33,22 @@ class BlogsController < ApplicationController
   end
 
   def update
-    if @blog.update(update_params)
+    if @blog.update(blog_params)
       redirect_to blog_path(@blog.id)
       flash[:notice] = "ブログの編集が完了しました"
     else
-    render :edit
+      render :edit
+      flash[:alert] = "ブログの編集に失敗しました"
     end
   end
 
   def destroy
-    @blog.destroy
-    redirect_to root_path
-    flash[:notice] = "ブログの削除が完了しました"
+    if @blog.destroy
+      redirect_to root_path
+      flash[:notice] = "ブログの削除が完了しました"
+    else
+      flash[:alert] = "ブログの削除に失敗しました"
+    end 
   end
 
   def search_show
@@ -62,15 +67,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:blog_id]).merge(user_id: current_user.id)
-  end
-
-  def update_params
-    params.require(:blog).permit(:title, :url, :body, :owner_id, :category_id, tag_ids: [], user_attributes:[:id, :blog_id, :_destroy]).merge(user_id: current_user.id)
-  end
-
-  def myblog_params
-    params.require(:blog).permit(:url)
+    params.require(:blog).permit(:title, :url, :body, :category_id, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_blogs
@@ -78,7 +75,7 @@ class BlogsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to action: :index unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
 
 end
