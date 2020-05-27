@@ -43,6 +43,7 @@ https://engineerblogs-map.com/
 ![like_blog_action](https://user-images.githubusercontent.com/62419040/83034244-0132a180-a073-11ea-9870-773bc96e76ca.gif)
 ブログのお気に入り機能を非同期で実装しています。トップページ・マイページ・ブログ検索画面などで登録可能です。
 トップページにはお気に入り登録数上位10件が表示されており、人気コンテンツにスムーズにアクセスできるようになっています。
+<p>&nbsp</p>
 
 ## 記事検索・並べ替え
 ![blog_search](https://user-images.githubusercontent.com/62419040/82435783-c4ddcf00-9acf-11ea-8b85-027dda6a8918.gif)
