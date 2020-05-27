@@ -1,23 +1,21 @@
 # EngineerBlogs.map! 〜技術ブログ共有アプリ〜
 ![top-image](https://user-images.githubusercontent.com/62419040/82435702-a677d380-9acf-11ea-93b5-db6200aef2f3.jpg)
 ![blog_index](https://user-images.githubusercontent.com/62419040/83029861-1d800f80-a06e-11ea-9a78-a2ffc253cf6d.jpg)
-<p>&nbsp</p>
 
 ## 本番環境URL
 https://engineerblogs-map.com/
 
 ## テストユーザー
 メールアドレス　test@gmail.com<br>パスワード　1111aaaa
-<p>&nbsp</p>
 
 # コンセプト
-技術ブログを発見・共有できるコミュニティを設けたいと考えました。
+「技術ブログを発見・共有できるコミュニティを設けたい」
 - プログラミングの情報ソースが多岐に渡り、ブログの閲覧が減っている
 - 特に初学者にとっては、ブログの信頼性や自分のレベルに合った内容なのか判断が難しい
 - しかし、自分に合ったブログを発見できた時の見返りは大きい
 - 技術ブログに特化したアプリの不在
-<br>
-上記のように考え、本アプリの作成に至りました。
+
+上記のように考えた結果、本アプリの作成に至りました。
 
 # 使用言語、フレームワーク、データベース
 - haml&Sass
@@ -27,9 +25,8 @@ https://engineerblogs-map.com/
 - Ruby on Rails
 - MySQL
 - AWS
-<p>&nbsp</p>
 
-# このアプリでできること、実装していること
+# 実装機能
 - ユーザー登録(gem:devise)
 - ブログの共有
 - ブログに紐づくタグのインクリメンタルサーチ（ブログ登録時・検索時）
@@ -37,7 +34,6 @@ https://engineerblogs-map.com/
 - 記事検索、並べ替え(gem:ransack)
 - レビュー投稿
 - マイブログ登録
-<p>&nbsp</p>
 
 # 主な実装内容
 
