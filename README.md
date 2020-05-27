@@ -9,7 +9,7 @@ https://engineerblogs-map.com/
 メールアドレス　test@gmail.com<br>パスワード　1111aaaa
 
 # コンセプト
-**技術ブログを発見・共有できるコミュニティを設けたい**
+**「技術ブログを発見・共有できるコミュニティを設けたい」**
 - プログラミングの情報ソースが多岐に渡り、ブログの閲覧が減っている
 - 特に初学者にとっては、ブログの信頼性や自分のレベルに合った内容なのか判断が難しい
 - しかし自分に合ったブログを発見できた時の見返りは大きい
@@ -18,12 +18,12 @@ https://engineerblogs-map.com/
 上記のように考えた結果、本アプリの作成に至りました。
 
 # 使用言語、フレームワーク、データベース
+- Ruby (ver 2.5.1)
+- Ruby on Rails (ver 5.2.4.3)
 - haml
 - Sass
 - JavaScript
 - jQuery
-- Ruby
-- Ruby on Rails
 - MySQL
 - AWS
 
@@ -35,7 +35,7 @@ https://engineerblogs-map.com/
 - 記事検索、並べ替え(gem:ransack)
 - レビュー投稿
 - マイブログ登録
-- モデル単体テスト(gem:RSpec)
+- モデル単体テスト(gem:RSpec / FactoryBot)
 
 # 主な実装内容
 
