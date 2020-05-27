@@ -1,6 +1,6 @@
 # EngineerBlogs.map! 〜技術ブログ共有アプリ〜
 ![top-image](https://user-images.githubusercontent.com/62419040/82435702-a677d380-9acf-11ea-93b5-db6200aef2f3.jpg)
-![blog_index](https://user-images.githubusercontent.com/62419040/83029861-1d800f80-a06e-11ea-9a78-a2ffc253cf6d.jpg)
+![blog_index](https://user-images.githubusercontent.com/62419040/83034229-fe37b100-a072-11ea-821a-919726cec1db.jpg) 1
 
 ## 本番環境URL
 https://engineerblogs-map.com/
@@ -38,20 +38,18 @@ https://engineerblogs-map.com/
 # 主な実装内容
 
 ## お気に入り機能
-![like_blog_action](https://user-images.githubusercontent.com/62419040/82435748-b8f20d00-9acf-11ea-9747-bde06a375883.gif)
-紹介されているブログのお気に入り機能を非同期で実装しています。トップページでは個人・企業のカテゴリ別に、お気に入り登録数上位10件が表示されており、人気コンテンツにスムーズにアクセスできるようになっています。
-<p>&nbsp</p>
+![like_blog_action](https://user-images.githubusercontent.com/62419040/83034244-0132a180-a073-11ea-9870-773bc96e76ca.gif)
+ブログのお気に入り機能を非同期で実装しています。トップページ・マイページ・ブログ検索画面などで登録可能です。
+トップページにはお気に入り登録数上位10件が表示されており、人気コンテンツにスムーズにアクセスできるようになっています。
 
 ## 記事検索、並べ替え
 ![blog_search](https://user-images.githubusercontent.com/62419040/82435783-c4ddcf00-9acf-11ea-8b85-027dda6a8918.gif)
 gem:ransackを用いて、タイトル・紹介文・タグの複合検索を実装しています。タグ情報は1万件以上登録されているため、インクリメンタルサーチで選択できるようになっています。  
 並べ替え機能については、現在は登録日時順のみ実装しています（今後お気に入り登録件数順なども対応予定です）。
-<p>&nbsp</p>
 
 ## レビュー投稿
 ![blog_show](https://user-images.githubusercontent.com/62419040/82435782-c4453880-9acf-11ea-8d54-072cf7366c28.jpg)
 ブログ詳細ページから、レビューの投稿・閲覧が可能です。投稿に関して、ブログ内特定記事のおすすめは任意です。そのため、単にブログ全体へのレビューと使い分けが可能です。
-<p>&nbsp</p>
 
 ## マイブログ登録
 ![myblog_create](https://user-images.githubusercontent.com/62419040/82435715-ac6db480-9acf-11ea-8561-ec944d62fc1a.gif)
@@ -64,7 +62,6 @@ gem:ransackを用いて、タイトル・紹介文・タグの複合検索を実
 - 管理ユーザー（＝マイブログとして登録したユーザー）が現れた際は、その権限が移動する
 <br>
 上記の形を取っています。マイブログ登録時は、URLをフォームへ入力すると該当ブログ名が表示される仕組みです（JSで実装）。
-<p>&nbsp</p>
 
 # 今後の取り組み
 まだまだ不十分な点が多いため、継続的に機能改善を行います。  
@@ -80,7 +77,6 @@ gem:ransackを用いて、タイトル・紹介文・タグの複合検索を実
   →　ニーズに合ったブログ発見をより容易にするため
 - ユーザーマイページのコンテンツ強化（プロフィール画像・外部サイト連携）  
   →　ブログ共有やレビューの活性化のため
-<p>&nbsp</p>
 
 # 参考 DB設計
 ![ER](https://user-images.githubusercontent.com/62419040/82435780-c4453880-9acf-11ea-94b2-4cee199ece5f.jpeg)
