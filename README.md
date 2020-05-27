@@ -1,6 +1,6 @@
 # EngineerBlogs.map! 〜技術ブログ共有アプリ〜
 ![top-image](https://user-images.githubusercontent.com/62419040/82435702-a677d380-9acf-11ea-93b5-db6200aef2f3.jpg)
-![blog_index](https://user-images.githubusercontent.com/62419040/82435799-cb6c4680-9acf-11ea-9f23-55644aa24909.jpg)
+![blog_index](https://user-images.githubusercontent.com/62419040/83029861-1d800f80-a06e-11ea-9a78-a2ffc253cf6d.jpg)
 <p>&nbsp</p>
 
 ## 本番環境URL
@@ -71,7 +71,7 @@ gem:ransackを用いて、タイトル・紹介文・タグの複合検索を実
 まだまだ不十分な点が多いため、継続的に機能改善を行います。  
 今後優先的に取り組む課題は以下の通りです。
 
-- レスポンシブ対応・SSL接続・プライバシーポリシーの設置  
+- レスポンシブ対応~~・SSL接続~~・プライバシーポリシーの設置  
   →　幅広いユーザーに利用して頂くため
 - お問い合わせフォームの設置  
   →　掲載拒否や第三者がマイブログ登録していた際に対応するため
