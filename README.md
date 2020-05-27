@@ -18,7 +18,6 @@ https://engineerblogs-map.com/
 - 技術ブログに特化したアプリの不在
 <br>
 上記のように考え、本アプリの作成に至りました。
-<p>&nbsp</p>
 
 # 使用言語、フレームワーク、データベース
 - haml&Sass
