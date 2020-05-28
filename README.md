@@ -21,7 +21,7 @@ https://engineerblogs-map.com/
 
 # 使用言語、フレームワーク、データベース
 - Ruby (ver 2.5.1)
-- Ruby on Rails (ver 5.2.4.3)
+- Ruby on Rails (ver 5.2.4)
 - haml
 - Sass
 - JavaScript
