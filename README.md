@@ -6,7 +6,9 @@
 https://engineerblogs-map.com/
 
 ## テストユーザー
-メールアドレス　test@gmail.com<br>パスワード　1111aaaa
+メールアドレス: test@gmail.com<br>
+パスワード:&nbsp; &nbsp; &nbsp; &nbsp; 1111aaaa<br>
+※ご覧頂いた後はログアウトをお願い致します。
 
 # コンセプト
 **「技術ブログを発見・共有できるコミュニティを設けたい」**
