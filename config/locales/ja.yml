@@ -45,7 +45,7 @@ ja:
         category: カテゴリー
         owner: 所有者
     models:
-      user: ユーザ
+      user: ユーザー
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

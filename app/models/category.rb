@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :blogs
+  belongs_to :blog
 end
