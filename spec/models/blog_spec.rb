@@ -8,7 +8,7 @@ RSpec.describe Blog do
         expect(blog).to be_valid
       end
 
-      xit "nameが空の場合は登録できないこと" do
+      it "bodyが空の場合は登録できないこと" do
         blog = build(:blog, body: nil)
         blog.valid?
         expect(blog.errors[:body]).to include("が入力されていません。")
