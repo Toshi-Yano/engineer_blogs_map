@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe Review do
   describe "#create" do
-    describe "バリデーション確認（presence true）" do
+    describe "バリデーション確認" do
 
       it "全項目が入力されていれば登録できること" do
         review = build(:review)
