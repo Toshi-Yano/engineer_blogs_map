@@ -8,16 +8,16 @@ RSpec.describe User do
         expect(user).to be_valid
       end
 
-      it "nameが空の場合は登録できないこと" do
-        user = build(:user, name: nil)
-        user.valid?
-        expect(user.errors[:name]).to include("が入力されていません。")
-      end
-
       it "introductionが空でも登録できること" do
         user = build(:user, introduction: nil)
         expect(user).to be_valid
       end
+
+      it "nameが空の場合は登録できないこと" do
+        user = build(:user, name: nil)
+        user.valid?
+        expect(user.errors[:name]).to include("が入力されていません。")
+      end  
 
       it "emailが空の場合は登録できないこと" do
         user = build(:user, email: nil)
