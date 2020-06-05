@@ -15,7 +15,7 @@
               = tag.name
         %li.main__index__list--function#like-icon{ id: blog.id }
           = render partial: "like_blogs/index", locals: { blog: blog }
-    %ul.main__index__list
+    %ul.main__index__list.hidden--sm
       %p.main__index__list--category 新着ブログ
       - @new_blogs.each do |blog|
         %li.main__index__list--title

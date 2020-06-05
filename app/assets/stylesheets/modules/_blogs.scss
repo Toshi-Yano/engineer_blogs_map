@@ -70,6 +70,15 @@ header {
       margin: 10px;
       display: flex;
       flex-direction: column;
+
+      @include mq(md) {
+        background-color: #fff;
+      }
+      @include mq(sm) {
+        width: 100%;
+        background-color: red;
+      }
+      
       &--category {
         margin-bottom: 15px;
         font-size: 30px;
@@ -300,5 +309,11 @@ header {
   text-align: center;
   span {
     font-size: 15px;
+  }
+}
+
+.hidden--sm {
+  @include mq(sm) {
+    display: none;
   }
 }
