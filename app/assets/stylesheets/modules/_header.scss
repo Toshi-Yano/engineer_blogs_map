@@ -95,6 +95,7 @@ header {
   }
 }
 
+// ハンバーガーメニュー用
 #no-scroll {
   overflow-y: hidden;
 }
@@ -110,35 +111,24 @@ header {
 #show-flex {
   display: flex;
   flex-direction: column;
-  right: 0;
 }
 
 .top-menu__contents {
   display: none;
-  position: absolute;
-  width: 180px;
-  top: 0;
-  right: -180px;
+  position: fixed;
+  right: 0;
+  width: 50%;
+  height: 300px;
   z-index: 99;
-  color: #fff;
-  background: #4c81e9;
+  color: white;
+  background: #194578;
   padding: 8px;
   box-sizing: border-box;
-  min-height: 100%;
   transition: .4s;
-  overflow-y: hidden;
+  &__icon {
+    border-bottom: white;
+  }
+  &__items {
+    color: white;
+  }
 }
-
-// .show-contents {
-//   display:flex;
-//   flex-direction: column;
-//   width: 50%;
-//   height: 100vh;
-//   margin-right: 0;
-//   background-color: #F6F6F4;
-//   z-index: 99;
-//   overflow-y: hidden;
-//   &-items {
-    
-//   }
-// }

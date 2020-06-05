@@ -82,7 +82,7 @@
   }
 }
 
-.hidden--sm {
+.hidden--md {
   @include mq(md) {
     display: none;
   }
