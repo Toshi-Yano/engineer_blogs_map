@@ -3,7 +3,6 @@
     = link_to "EngineerBlogs.map!",root_path
   .header__menu
     = icon("fa", "bars", class: "header__menu-icon")
-    = icon("fa", "times", class: "header__close-icon", id: "hidden")
   .header__contents
     -if user_signed_in?
       = link_to "検索", search_show_blogs_path, class: "header__contents__items", data:{"turbolinks" => false}
@@ -14,3 +13,17 @@
       = link_to "検索", search_show_blogs_path, class: "header__contents__items", data:{"turbolinks" => false}
       = link_to "ログイン", new_user_session_path, class: "header__contents__items"
       = link_to "会員登録", new_user_registration_path, class: "header__contents__items"
+
+-# ハンバーガーメニュー
+.top-menu__contents 
+  .top-menu__contents__icon
+    = icon("fa", "times", class: "header__close-icon", id: "hidden")
+  -if user_signed_in?
+    = link_to "検索", search_show_blogs_path, class: "top-menu__contents__items", data:{"turbolinks" => false}
+    = link_to "共有", new_blog_path, class: "top-menu__contents__items", data:{"turbolinks" => false}
+    = link_to "マイページ", user_path(current_user), class: "top-menu__contents__items"
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "top-menu__contents__items"
+  - else
+    = link_to "検索", search_show_blogs_path, class: "top-menu__contents__items", data:{"turbolinks" => false}
+    = link_to "ログイン", new_user_session_path, class: "top-menu__contents__items"
+    = link_to "会員登録", new_user_registration_path, class: "top-menu__contents__items"
