@@ -19,9 +19,20 @@ a:hover {
     display: flex;
     justify-content: center;
 
+    @include mq(md) {
+      margin: 10px 0;
+      padding: 0;
+      width: 100%;
+    }
+
     .account-page__inner--left, .account-page__inner--right {
       float: left;
       width: 50%;
+
+      @include mq(md) {
+        width: 100%;
+        padding: 5%;
+      }
     }
     &:after {
       clear: both;
@@ -87,7 +98,7 @@ a:hover {
       }
       textarea {
         width: 100%;
-        height: 200px;
+        height: 100px;
         padding: 10px;
         letter-spacing: 1px;
         border-color: #BFBFBF;

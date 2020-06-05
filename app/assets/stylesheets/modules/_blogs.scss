@@ -94,12 +94,18 @@ header {
       }
       @include mq(sm) {
         width: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       &--category {
         margin-bottom: 15px;
         font-size: 30px;
         text-align: center;
+
+        @include mq(sm) {
+          font-size: 20px;
+        }
       }
       &--title {
         font-size: 15px;
