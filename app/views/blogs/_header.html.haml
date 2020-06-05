@@ -1,8 +1,9 @@
 %header
   .header__title
-    = link_to "EngineerBlogs.map!",root_path, class: "header-open"
-    = link_to root_path, class: "header-close" do
-      = icon("fa", "home")
+    = link_to "EngineerBlogs.map!",root_path
+  .header__menu
+    = icon("fa", "bars", class: "header__menu-icon")
+    = icon("fa", "times", class: "header__close-icon", id: "hidden")
   .header__contents
     -if user_signed_in?
       = link_to "検索", search_show_blogs_path, class: "header__contents__items", data:{"turbolinks" => false}
