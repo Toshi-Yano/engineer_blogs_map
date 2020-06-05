@@ -16,10 +16,24 @@ header {
 .header {
   &__title {
     margin-left: 50px;
+    @include mq(sm) {
+      margin-left: 20px;
+    }
     a {
       color: white;
       font-size: 20px;
       font-weight: bold;
+    }
+  }
+  &-open {
+    @include mq(sm) {
+      display: none;
+    }
+  }
+  &-close {
+    display: none;
+    @include mq(sm) {
+      display: inline;
     }
   }
   &__contents {
