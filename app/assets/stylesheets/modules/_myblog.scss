@@ -8,6 +8,10 @@
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 5px;
+
+  @include mq(md) {
+    width: 90%;
+  }
   &__title {
     width: 50%;
     margin: 20px auto;
@@ -18,20 +22,35 @@
     &__form {
       width: 100%;
       &--input {
-        width: 50%;
+        width: 60%;
         height: 40px;
         margin: 10px 0 30px;
         background-color: white;
         border-radius: 3px;
         border: 1px solid #A6A6A6;
         padding: 5px 10px;
+
+        @include mq(sm) {
+          width: 90%;
+        }
       }
-      &--result-title {
-        display: inline-block;
-        font-size: 30px;
-        font-weight: bold;
-        border-bottom: 1px solid black;
-        margin-bottom: 30px;
+      &--result {
+        &-title {
+          display: inline-block;
+          font-size: 30px;
+          font-weight: bold;
+          border-bottom: 1px solid black;
+          margin-bottom: 30px;
+
+          @include mq(sm) {
+            font-size: 20px;
+          }
+        }
+        &-text {
+          @include mq(sm) {
+            font-size: 12px;
+          }
+        }
       }
       &--btn {
         width: 100px;

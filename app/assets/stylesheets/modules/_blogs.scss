@@ -162,15 +162,27 @@ header {
 .blog {
   padding: 90px 20px 20px;
   display: flex;
+
+  @include mq(md) {
+    flex-direction: column;
+  }
   &__left {
     width: 50%;
+
+    @include mq(md) {
+      width: 100%;
+    }
     &--container {
       width: 80%;
-      margin: 0 auto 5px;
+      margin: 0 auto 10px;
       padding: 20px;
       background-color: white;
       border: 1px solid #ddd;
       border-radius: 5px;
+
+      @include mq(md) {
+        width: 100%;
+      }
     }
     &__title {
       font-size: 20px;
@@ -200,28 +212,24 @@ header {
       }
     }
     &__edit {
-      // margin-bottom: 10px;
       &--each {
         color: #999999;
-        // display: inline-block;
-        // width: 70px;
-        // height: 35px;
-        // background-color: rgb(25, 69, 121);
-        // color: white;
-        // text-decoration: none;
-        // text-align: center;
-        // line-height: 35px;
       }
     }
   }
   &__review {
     width: 80%;
     height: 375px;
-    margin: 0 auto 25px;
+    margin: 0 auto;
     padding-top: 10px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    @include mq(md) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
     &__title {
       width: 35%;
       text-align: center;
@@ -229,16 +237,28 @@ header {
       font-size: 20px;
       font-weight: bold;
       border-bottom: 1px solid #DDDDDD;
+
+      @include mq(sm) {
+        width: 70%;
+      }
     }
     &__form {
       width: 100%;
       margin-top: 10px;
       &--label {
         margin-left: 10%;
+
+        @include mq(sm) {
+          margin-left: 3%;
+        }
       }
       &--input {
         margin: 0 auto;
         width: 80%;
+
+        @include mq(sm) {
+          width: 95%;
+        }
       }
       &--body {
         width: 100%;
@@ -273,6 +293,10 @@ header {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    @include mq(md) {
+      width: 100%;
+    }
     &__title {
       font-size: 20px;
       font-weight: bold;
