@@ -9,7 +9,7 @@ $(function() {
       $(".header__close-icon").attr("id", "show")
     });
 
-    $(document).on("click", ".header__close-icon, .body-cover", function() {
+    $(document).on("click", ".top-menu__contents__close, .body-cover", function() {
       $(".body-cover").attr("id", "hidden");
       $(".top-menu__contents").attr("id", "hidden");
       $("body").removeAttr("id", "no-scroll")
