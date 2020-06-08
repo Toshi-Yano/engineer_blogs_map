@@ -81,6 +81,7 @@
       font-size: 24px;
       color: gray;
       line-height: 50px;
+      display: none;
 
       @include mq(sm) {
         height: 30px;
@@ -109,5 +110,11 @@
 .hidden--md {
   @include mq(md) {
     display: none;
+  }
+}
+
+.display--md {
+  @include mq(md) {
+    display: block;
   }
 }

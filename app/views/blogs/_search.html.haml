@@ -30,6 +30,6 @@
       = f.select(:sorts, {"登録が新しい順": "created_at DESC", "登録が古い順": "created_at ASC"}, {selected: params[:q][:sorts]}, class: "search__left__sort--tab")
     .search__left__action
       = f.submit "検索", class: "search__left__action--btn", id: "search-submit"
-.search__left-js
+.search__left-js.display--md
   = icon("fa", "search", class: "search__left-js--icon")
   %span.search__left-js--text 検索メニュー
