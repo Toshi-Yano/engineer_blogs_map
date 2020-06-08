@@ -4,7 +4,7 @@
   .header__menu
     = icon("fa", "bars", class: "header__menu-icon")
   .header__contents
-    -if user_signed_in?
+    - if user_signed_in?
       = link_to "検索", search_show_blogs_path, class: "header__contents__items", data:{"turbolinks" => false}
       = link_to "共有", new_blog_path, class: "header__contents__items", data:{"turbolinks" => false}
       = link_to "マイページ", user_path(current_user), class: "header__contents__items"
@@ -18,7 +18,7 @@
 .top-menu__contents 
   .top-menu__contents__icon
     = icon("fa", "times", class: "header__close-icon", id: "hidden")
-  -if user_signed_in?
+  - if user_signed_in?
     = link_to "検索", search_show_blogs_path, class: "top-menu__contents__items", data:{"turbolinks" => false}
     = link_to "共有", new_blog_path, class: "top-menu__contents__items", data:{"turbolinks" => false}
     = link_to "マイページ", user_path(current_user), class: "top-menu__contents__items"
