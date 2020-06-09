@@ -74,7 +74,7 @@ ransackを用いて、タイトル・紹介文・カテゴリー・タグの複�
 <p>&nbsp</p>
 
 ## レスポンシブ対応
-![responsive](https://user-images.githubusercontent.com/62419040/84199805-bdaf4d00-aae0-11ea-9d2c-6d4f7d572ed1.gif)
+<img src="https://user-images.githubusercontent.com/62419040/84199805-bdaf4d00-aae0-11ea-9d2c-6d4f7d572ed1.gif" width="320px" height="568px">
 <br>
 PC・タブレット・スマートフォンの3種類に対応しています。レイアウト・ハンバーガーメニュー・同一ページ内での表示切り替えなど、画面幅に合わせて調整済です。
 <p>&nbsp</p>
