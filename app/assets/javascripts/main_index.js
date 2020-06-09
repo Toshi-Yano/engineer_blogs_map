@@ -3,7 +3,7 @@ $(function() {
 
     const pageCount = 1 // トップページのコンテンツ数 - 1
     
-    $(document).on("click", "#top-right-arrow", function() {
+    $(document).on("click touchstart", "#top-right-arrow", function() {
       const currentPage = $("#show-index").data("index");
       const nextPage = currentPage + 1;
 
@@ -15,7 +15,7 @@ $(function() {
       };
     });
 
-    $(document).on("click", "#top-left-arrow", function() {
+    $(document).on("click touchstart", "#top-left-arrow", function() {
       const currentPage = $("#show-index").data("index");
       const previousPage = currentPage - 1;
 
@@ -26,6 +26,6 @@ $(function() {
         $('[data-index="' + previousPage + '"]').attr("id", "show-index");
       };
     });
-    
+
   });
 })
