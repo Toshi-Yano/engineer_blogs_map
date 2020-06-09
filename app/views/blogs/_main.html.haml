@@ -1,6 +1,8 @@
 %section.main
   .main__index
-    %ul.main__index__list
+    = icon("fas", "chevron-left", class: "main__index--left--arrow", id: "top-left-arrow")
+    = icon("fas", "chevron-right", class: "main__index--right--arrow", id: "top-right-arrow")
+    %ul.main__index__list#show-index{data: {index: 0}}
       %p.main__index__list--category 人気ブログ
       - @blogs.each_with_index do |blog, rank|
         %li.main__index__list--title
@@ -15,7 +17,7 @@
               = tag.name
         %li.main__index__list--function#like-icon{ id: blog.id }
           = render partial: "like_blogs/index", locals: { blog: blog }
-    %ul.main__index__list
+    %ul.main__index__list{data: {index: 1}}
       %p.main__index__list--category 新着ブログ
       - @new_blogs.each do |blog|
         %li.main__index__list--title

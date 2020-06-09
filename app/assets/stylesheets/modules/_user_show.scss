@@ -1,6 +1,10 @@
 .user {
   padding-top: 70px;
   display: flex;
+
+  @include mq(md) {
+    flex-direction: column;
+  }
   &__left {
     width: 30%;
     height: 100%;
@@ -11,6 +15,10 @@
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+    
+    @include mq(md) {
+      width: 90%;
+    }
     &__profile {
       width: 100%;
       &__name {
@@ -53,18 +61,31 @@
     padding: 20px 10px;
     display: flex;
     overflow: scroll;
+
+    @include mq(md) {
+      width: 100%;
+    }
     &__blogs {
       height: 100vh;
       width: 100%;
       display: flex;
       flex-direction: column;
       overflow: scroll;
+
+      @include mq(md) {
+        padding: 0 10px;
+      }
       &__title {
         width: 50%;
         margin: 20px auto 10px;
         font-size: 30px;
         text-align: center;
         border-bottom: 1px solid #DDDDDD;
+
+        @include mq(sm) {
+          width: 70%;
+          font-size: 20px;
+        }
       }
       &__each {
         width: 100%;

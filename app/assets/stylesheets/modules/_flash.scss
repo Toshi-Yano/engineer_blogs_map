@@ -1,27 +1,39 @@
 .notification {
   .notice {
-    width: 30%;
+    height: 70px;
     background-color: #092544;
     font-size: 16px;
+    line-height: 36px;
     color: white;
     text-align: center;
-    padding: 1em 0;
-    position: fixed;
+    padding: 1em;
     z-index: 99;
-    left: 33%;
-    line-height: 36px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    @include mq(sm) {
+      width: 100%;
+    }
   }
   
   .alert {
-    width: 30%;
+    height: 70px;
     background-color: #F35500;
     font-size: 16px;
+    line-height: 36px;
     color: white;
     text-align: center;
-    padding: 1em 0;
-    position: fixed;
+    padding: 1em;
     z-index: 99;
-    left: 33%;
-    line-height: 36px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    @include mq(sm) {
+      width: 100%;
+    }
   }
 }

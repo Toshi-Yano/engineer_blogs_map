@@ -2,78 +2,56 @@ html {
   background-color: #F6F6F4;
 }
 
-header {
-  height: 70px;
+.body-cover {
+  display: none;
+  background: #000;
+  opacity: 0.6;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  line-height: 70px;
-  background-color: #194578;
-  position: fixed;
+  height: 500vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 98;
-}
-
-.header {
-  &__title {
-    margin-left: 50px;
-    a {
-      color: white;
-      font-size: 20px;
-      font-weight: bold;
-    }
-  }
-  &__contents {
-    margin-right: 20px;
-    &__items {
-      margin-right: 30px;
-      color: white;
-    }
-  }
-}
-
-.top-image {
-  padding-top: 70px;
-  &__view {
-    position: relative;
-    &__content {
-      height: 700px;
-      width: 100%;
-    }
-    &__text {
-      width: 100%;
-      margin:0 auto;
-      padding:0;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      font-size: 80px;
-      color: white;
-      font-weight: bold;
-      transform: translate(-50%,-50%);
-    }
-  }
 }
 
 .main {
   height: 100%;
-  padding: 20px;
+  padding: 20px 20px 0;
   border-bottom:  1px solid #ddd;
   &__index {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
+
     &__list {
       width: 45%;
-      padding: 20px;
+      padding: 20px 20px 0;
       margin: 10px;
       display: flex;
       flex-direction: column;
+
+      @include mq(md) {
+        width: 100%;
+      }
+      @include mq(sm) {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+
       &--category {
-        margin-bottom: 15px;
+        width: 50%;
+        margin: 0 auto 15px;
+        // margin-bottom: 15px;
         font-size: 30px;
         text-align: center;
+        border-bottom: 1px solid #DDDDDD;
+
+        @include mq(sm) {
+          font-size: 20px;
+        }
       }
       &--title {
         font-size: 15px;
@@ -105,6 +83,34 @@ header {
       }
       &--function {
         display: flex;
+        border-bottom: 1px solid #DDDDDD;
+      }
+      &--function:last-child {
+        border-bottom: none;
+      }
+    }
+    &--left--arrow {
+      display: none;
+
+      @include mq(sm) {
+        display: block;
+        position: fixed;
+        top: 50%;
+        font-size: 30px;
+        opacity: 0.4;
+        left: 3%;
+      }
+    }
+    &--right--arrow {
+      display: none;
+
+      @include mq(sm) {
+      display: block;
+      position: fixed;
+      top: 50%;
+      font-size: 30px;
+      opacity: 0.4;
+      right: 3%;
       }
     }
   }
@@ -130,15 +136,30 @@ header {
 .blog {
   padding: 90px 20px 20px;
   display: flex;
+
+  @include mq(md) {
+    flex-direction: column;
+  }
+  @include mq(sm) {
+    padding: 80px 0 0;
+  }
   &__left {
     width: 50%;
+
+    @include mq(md) {
+      width: 100%;
+    }
     &--container {
       width: 80%;
-      margin: 0 auto 5px;
+      margin: 0 auto 10px;
       padding: 20px;
       background-color: white;
       border: 1px solid #ddd;
       border-radius: 5px;
+
+      @include mq(md) {
+        width: 100%;
+      }
     }
     &__title {
       font-size: 20px;
@@ -168,28 +189,24 @@ header {
       }
     }
     &__edit {
-      // margin-bottom: 10px;
       &--each {
         color: #999999;
-        // display: inline-block;
-        // width: 70px;
-        // height: 35px;
-        // background-color: rgb(25, 69, 121);
-        // color: white;
-        // text-decoration: none;
-        // text-align: center;
-        // line-height: 35px;
       }
     }
   }
   &__review {
     width: 80%;
     height: 375px;
-    margin: 0 auto 25px;
+    margin: 0 auto;
     padding-top: 10px;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    @include mq(md) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
     &__title {
       width: 35%;
       text-align: center;
@@ -197,16 +214,28 @@ header {
       font-size: 20px;
       font-weight: bold;
       border-bottom: 1px solid #DDDDDD;
+
+      @include mq(sm) {
+        width: 70%;
+      }
     }
     &__form {
       width: 100%;
       margin-top: 10px;
       &--label {
         margin-left: 10%;
+
+        @include mq(sm) {
+          margin-left: 3%;
+        }
       }
       &--input {
         margin: 0 auto;
         width: 80%;
+
+        @include mq(sm) {
+          width: 95%;
+        }
       }
       &--body {
         width: 100%;
@@ -241,6 +270,10 @@ header {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    @include mq(md) {
+      width: 100%;
+    }
     &__title {
       font-size: 20px;
       font-weight: bold;
@@ -301,4 +334,14 @@ header {
   span {
     font-size: 15px;
   }
+}
+
+.hidden--sm {
+  @include mq(sm) {
+    display: none;
+  }
+}
+
+#show-index {
+  display: block;
 }

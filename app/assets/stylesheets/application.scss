@@ -1,7 +1,9 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "config/variable";
 @import "mixin/mixin";
+@import "modules/header";
 @import "modules/users";
 @import "modules/blogs";
 @import "modules/like_blogs";
