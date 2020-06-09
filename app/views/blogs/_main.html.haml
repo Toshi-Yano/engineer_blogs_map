@@ -1,5 +1,7 @@
 %section.main
   .main__index
+    = icon("fas", "chevron-left", class: "main__index--left--arrow", id: "left-arrow")
+    = icon("fas", "chevron-right", class: "main__index--right--arrow", id: "right-arrow")
     %ul.main__index__list
       %p.main__index__list--category 人気ブログ
       - @blogs.each_with_index do |blog, rank|

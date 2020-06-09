@@ -118,6 +118,7 @@ header {
   position: fixed;
   right: 0;
   width: 35%;
+  height: 100%;
   z-index: 99;
   color: white;
   background: #194578;
@@ -125,7 +126,7 @@ header {
   box-sizing: border-box;
   transition: .4s;
   font-size: 24px;
-
+  
   @include mq(sm) {
     width: 40%;
     font-size: 16px;
@@ -145,15 +146,3 @@ header {
     }
   }
 }
-
-// .top-menu__contents a {
-//   display: block;
-//   color: white;
-//   border-bottom: white;
-// }
-// .top-menu__contents__items {
-//   display: block;
-//   color: white;
-//   border-bottom: white;
-//   // font-weight: bold;
-// }

@@ -87,6 +87,14 @@ html {
         border-bottom: none;
       }
     }
+    &--left--arrow {
+      @include index-arrow;
+      left: 3%;
+    }
+    &--right--arrow {
+      @include index-arrow;
+      right: 3%;
+    }
   }
 }
 
