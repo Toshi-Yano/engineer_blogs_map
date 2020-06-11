@@ -1,5 +1,5 @@
 class Blogs::FooterController < ApplicationController
-  def about_index
+  def index # このサイトについて
   end
 
   def policy_index
