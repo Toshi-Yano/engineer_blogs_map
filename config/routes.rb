@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "blogs#index"
   namespace :blogs do
     resources :myblogs, only: [:index, :new, :create, :destroy]
+    resources :footer, only: [:about_index, :policy_index]
   end
   resources :blogs do
     resources :reviews, only: [:create, :edit, :update, :destroy]

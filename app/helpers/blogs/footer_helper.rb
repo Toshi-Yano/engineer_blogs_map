@@ -1,0 +1,2 @@
+module Blogs::FooterHelper
+end
