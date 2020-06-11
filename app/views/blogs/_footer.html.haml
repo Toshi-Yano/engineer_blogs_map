@@ -1,3 +1,8 @@
 .footer
-  %small.footer__copyright
-    &copy;EngineerBlogs.map!
+  .footer__top
+    = link_to "このサイトについて", "#", class: "footer__top__info" 
+    = link_to "お問い合わせ", "#", class: "footer__top__contact" 
+    = link_to "プライバシーポリシー", "#", class: "footer__top__policy" 
+  .footer__bottom
+    %small.footer__bottom__copyright
+      &copy;EngineerBlogs.map!

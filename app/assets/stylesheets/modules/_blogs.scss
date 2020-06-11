@@ -124,13 +124,27 @@ html {
 }
 
 .footer {
-  height: 100px;
-  width: 100%;
   text-align: center;
   padding-top: 30px;
-  &__copyright {
-    margin-top: 20px;
-    font-size: 15px;
+  &__top {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+    @include mq(sm) {
+      flex-direction: column;
+    }
+    & > a {
+      font-size: 15px;
+      display: inline-block;
+      margin: 0 50px;
+    }
+  }
+  &__bottom {
+    margin: 10px;
+    &__copyright {
+      font-size: 16px;
+    }
   }
 }
 
