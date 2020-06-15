@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
-    @like_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id}).page(params[:page]).per(10)
+    if user_signed_in?
+      @like_blogs = Blog.includes(:tags, :blog_tags).joins(:like_blogs).where(like_blogs:{like_user_id: current_user.id}).page(params[:page]).per(10)
+    end
     @own_blogs = Blog.where(owner_id: @user.id)
   end
 
