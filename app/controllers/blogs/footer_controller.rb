@@ -4,4 +4,7 @@ class Blogs::FooterController < ApplicationController
 
   def policy_index
   end
+
+  def contact_form
+  end
 end

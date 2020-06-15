@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :myblogs, only: [:index, :new, :create, :destroy]
     resources :footer, only:[:index] do
       collection do
-        get :policy_index
+        get :policy_index, :contact_form
       end
     end
   end
