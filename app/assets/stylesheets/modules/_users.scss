@@ -71,7 +71,7 @@ a:hover {
 
       @include mq(sm) {
         font-size: 20px;
-        border-radius: 0;
+        line-height: 20px;
       }
     }
   }
@@ -129,7 +129,7 @@ a:hover {
 
     @include mq(sm) {
       font-size: 20px;
-      border-radius: 0;
+      line-height: 20px;
     }
   }
 
