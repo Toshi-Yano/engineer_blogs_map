@@ -249,7 +249,7 @@ html {
         transition: .3s;
 
         @include mq(sm) {
-          font-size: 10px;
+          font-size: 30px;
         }
       }
     }

@@ -70,7 +70,7 @@ a:hover {
       border-radius: 5%;
 
       @include mq(sm) {
-        font-size: 10px;
+        font-size: 30px;
       }
     }
   }
@@ -127,7 +127,7 @@ a:hover {
     margin: 0 auto;
 
     @include mq(sm) {
-      font-size: 10px;
+      font-size: 30px;
     }
   }
 
