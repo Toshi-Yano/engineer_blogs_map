@@ -78,9 +78,10 @@
 .contact {
   padding-top: 70px;
   text-align: center;
-  
+}
 
+iframe {
   @include mq(sm) {
-    width: 320;
+    width: 320px;
   }
 }
