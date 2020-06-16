@@ -68,6 +68,10 @@ a:hover {
       background-color: #ccc;
       font-size: 14px;
       border-radius: 5%;
+
+      @include mq(sm) {
+        font-size: 10px;
+      }
     }
   }
 
@@ -114,13 +118,17 @@ a:hover {
   .btn {
     display: inline-block;
     height: 50px;
-    // padding: 0 30px;
+    padding: 0 30px;
     line-height: 50px;
     letter-spacing: 1px;
     text-align: center;
     border: none;
     border-radius: 5%;
     margin: 0 auto;
+
+    @include mq(sm) {
+      font-size: 10px;
+    }
   }
 
   input[type='submit'] {

@@ -244,9 +244,13 @@ html {
         font-weight: bold;
         background: rgb(25, 69, 121);
         color: #ffffff;
-        // line-height: 1em;
+        line-height: 1em;
         opacity: 1;
         transition: .3s;
+
+        @include mq(sm) {
+          font-size: 10px;
+        }
       }
     }
   }
