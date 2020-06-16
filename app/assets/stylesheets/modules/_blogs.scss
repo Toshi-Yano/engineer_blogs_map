@@ -44,7 +44,6 @@ html {
       &--category {
         width: 50%;
         margin: 0 auto 15px;
-        // margin-bottom: 15px;
         font-size: 30px;
         text-align: center;
         border-bottom: 1px solid #DDDDDD;
@@ -62,7 +61,7 @@ html {
         }
       }
       &--tag {
-        font-size: 3px;
+        font-size: 8px;
         display: -webkit-inline-box;
         &--partial {
           display: inline-block;
@@ -238,7 +237,6 @@ html {
         width: 30%;
         height: 40px;
         margin: 0 auto;
-        // margin-left: 40%;
         display: block;
         border-radius: 5%;
         font-size: 14px;
@@ -249,7 +247,6 @@ html {
         line-height: 1em;
         opacity: 1;
         transition: .3s;
-        cursor: pointer;
       }
     }
   }

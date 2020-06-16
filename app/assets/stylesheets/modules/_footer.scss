@@ -33,22 +33,43 @@
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 5px;
+
+    @include mq(md) {
+      width: 100%;
+      margin-top: 10px;
+      padding: 5%;
+    }
     &__title {
       width: 50%;
       margin: 0 auto;
       text-align: center;
       font-size: 32px;
       border-bottom: 1px solid #DDDDDD;
+
+      @include mq(sm) {
+        width: 70%;
+        font-size: 20px;
+      }
     }
     &__contents {
       line-height: 32px;
       &--top {
         margin: 50px 0;
+        
+        @include mq(sm) {
+          font-size: 14px;
+          margin: 30px 0;
+        }
       }
       &--title {
         font-size: 24px;
         font-weight: bold;
         margin: 15px 0;
+      }
+      &--text {
+        @include mq(sm) {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -57,4 +78,10 @@
 .contact {
   padding-top: 70px;
   text-align: center;
+}
+
+iframe {
+  @include mq(sm) {
+    width: 320px;
+  }
 }
