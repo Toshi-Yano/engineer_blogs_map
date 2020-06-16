@@ -63,7 +63,7 @@ $(function() {
     // ransackで使用する検索クエリを配列で作成
     let searchArray = []
     // タグがクリックされたらビューの入替えを行い、tagIdを配列へ挿入
-    $(document).on("click", ".search__field__tag--each--btn--add", function() {
+    $(document).on("click touchstart", ".search__field__tag--each--btn--add", function() {
       const tagName = $(this).attr("data-tag-name");
       const tagId = $(this).attr("data-tag-id");
       $(this).parent().remove();
@@ -72,7 +72,7 @@ $(function() {
       return searchArray.push(tagId)
     });
     // 追加済のタグがクリックされたらビュー・配列内の値を削除
-    $(document).on("click", ".search__field__tag--each--btn--remove", function() {
+    $(document).on("click touchstart", ".search__field__tag--each--btn--remove", function() {
       let removeId = $(this).attr("data-tag-id");
       $(this).parent().remove();
       searchArray.some(function(value, i) {
@@ -81,7 +81,7 @@ $(function() {
       })
     });
     // submitのタイミングでinput内容を設定
-    $(document).on("click", "#search-submit", function() {
+    $(document).on("click touchstart", "#search-submit", function() {
       addResultTag(searchArray)
     });
   });

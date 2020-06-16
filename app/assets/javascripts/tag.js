@@ -60,7 +60,7 @@ $(function() {
     });
 
     // タグがクリックされたらビューの入替え・valueの設定を行う
-    $(document).on("click", ".field__tag--each--btn--add", function() {
+    $(document).on("click touchstart", ".field__tag--each--btn--add", function() {
       const tagName = $(this).attr("data-tag-name");
       const tagId = $(this).attr("data-tag-id");
       $(this).parent().remove();
@@ -69,7 +69,7 @@ $(function() {
       $("#tag-form").val("");
     });
     // 追加済のタグがクリックされたら削除
-    $(document).on("click", ".field__tag--each--btn--remove", function() {
+    $(document).on("click touchstart", ".field__tag--each--btn--remove", function() {
       $(this).parent().remove();
     });
   });
