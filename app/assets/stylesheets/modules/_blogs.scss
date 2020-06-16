@@ -44,7 +44,6 @@ html {
       &--category {
         width: 50%;
         margin: 0 auto 15px;
-        // margin-bottom: 15px;
         font-size: 30px;
         text-align: center;
         border-bottom: 1px solid #DDDDDD;
@@ -62,7 +61,7 @@ html {
         }
       }
       &--tag {
-        font-size: 3px;
+        font-size: 8px;
         display: -webkit-inline-box;
         &--partial {
           display: inline-block;
