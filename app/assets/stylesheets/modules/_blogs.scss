@@ -249,7 +249,8 @@ html {
         transition: .3s;
 
         @include mq(sm) {
-          font-size: 30px;
+          font-size: 16px;
+          border-radius: 2%;
         }
       }
     }
