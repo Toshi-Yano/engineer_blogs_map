@@ -1,7 +1,9 @@
 $(function() {
   $(document).on('turbolinks:load', ()=> {
 
-    $(document).on("touchend", ".header__menu-icon", function() {
+    let eventType = window.ontouchstart ? "touchstart" : "click";
+
+    $(document).on(eventType, ".header__menu-icon", function() {
       $(this).attr("id", "hidden");
       $(".body-cover").attr("id", "show");
       $(".top-menu__contents").attr("id", "show-flex")
@@ -9,7 +11,7 @@ $(function() {
       $(".header__close-icon").attr("id", "show")
     });
 
-    $(document).on("touchend", ".top-menu__contents__close, .body-cover", function() {
+    $(document).on(eventType, ".top-menu__contents__close, .body-cover", function() {
       $(".body-cover").attr("id", "hidden");
       $(".top-menu__contents").attr("id", "hidden");
       $("body").removeAttr("id", "no-scroll")
