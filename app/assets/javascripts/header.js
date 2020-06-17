@@ -1,9 +1,11 @@
 $(function() {
   $(document).on('turbolinks:load', ()=> {
 
-    let eventType = window.ontouchstart ? "click" : "touchstart";
+    let eventType = ("ontouchstart" in document)  ? "touchstart" : "click";
 
-    $(document).on(eventType, ".header__menu-icon", function() {
+    $(document).on(eventType, ".header__menu-icon", function(e) {
+      e.preventDefault();
+
       $(this).attr("id", "hidden");
       $(".body-cover").attr("id", "show");
       $(".top-menu__contents").attr("id", "show-flex")
@@ -11,7 +13,9 @@ $(function() {
       $(".header__close-icon").attr("id", "show")
     });
 
-    $(document).on(eventType, ".top-menu__contents__close, .body-cover", function() {
+    $(document).on(eventType, ".top-menu__contents__close, .body-cover", function(e) {
+      e.preventDefault();
+
       $(".body-cover").attr("id", "hidden");
       $(".top-menu__contents").attr("id", "hidden");
       $("body").removeAttr("id", "no-scroll")
