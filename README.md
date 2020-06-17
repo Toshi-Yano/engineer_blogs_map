@@ -1,5 +1,5 @@
 # EngineerBlogs.map! 〜技術ブログ共有アプリ〜
-![top-image](https://user-images.githubusercontent.com/62419040/82435702-a677d380-9acf-11ea-93b5-db6200aef2f3.jpg)
+![top-image](https://user-images.githubusercontent.com/62419040/84882534-5be77800-b0ca-11ea-868f-5879038e3718.png)
 ![blog_index](https://user-images.githubusercontent.com/62419040/83054306-30eea300-a08d-11ea-865d-9d06aad2ec50.jpg)
 
 ## 本番環境URL
@@ -60,7 +60,7 @@ ransackを用いて、タイトル・紹介文・カテゴリー・タグの複�
 <p>&nbsp</p>
 
 ## マイブログ登録
-![myblog_create](https://user-images.githubusercontent.com/62419040/82435715-ac6db480-9acf-11ea-8561-ec944d62fc1a.gif)
+![myblog_create](https://user-images.githubusercontent.com/62419040/84882553-630e8600-b0ca-11ea-9dd3-7db11a0abda0.gif)
 マイブログ登録とは、「そのブログの管理者が自分である事を登録する」という意味合いです。
 <br>
 本アプリでは、ブログ共有時に自動で登録されるuser_idカラムとは別に、owner_idカラムを設けています。  
