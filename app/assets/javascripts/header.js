@@ -1,7 +1,7 @@
 $(function() {
   $(document).on('turbolinks:load', ()=> {
 
-    let eventType = window.ontouchstart ? "click" : "touchstart";
+    let eventType = window.ontouchend ? "click" : "touchend";
 
     $(document).on(eventType, ".header__menu-icon", function() {
       $(this).attr("id", "hidden");
