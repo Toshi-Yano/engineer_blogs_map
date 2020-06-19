@@ -1,7 +1,7 @@
 defaults: &defaults
   site:
-    name: EngineerBlogsMap
-    description: 技術ブログの共有サイトです。おすすめブログの共有・検索や、レビューの投稿が可能です。
+    name: EngineerBlogsMap!
+    description: 技術ブログの共有サイトです。紹介文やタグ検索で自分に合ったブログを見つけましょう！またおすすめのブログや、ご自身のブログがあればぜひ紹介して下さい！
     meta:
       ogp:
         app_id: Facebook App ID
