@@ -1,11 +1,11 @@
 %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", name: "viewport"}
 %meta{:content => "nofollow", :name => "robots"}
-%meta{:content => "asset_url('twitter_card.png')", :name => "twitter:image"}/
+-# %meta{:content => "asset_url('twitter_card.png')", :name => "twitter:image"}/
 
 %link{media: 'handheld', rel: 'alternate', href: request.original_url}/
 
 - set_meta_tags twitter: { card: "summary", site: "@username" }
--# - set_meta_tags twitter: { card: "photo", image: { _: "/app/assets/images/twitter_card.png", width: 100, height: 100, }}
+- set_meta_tags twitter: { card: "photo", image: { _: "https://engineerblogs-map.com/app/assets/images/twitter_card.png", width: 100, height: 100, }}
 
 = display_meta_tags default_meta_tags
