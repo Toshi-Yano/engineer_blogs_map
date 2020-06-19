@@ -3,9 +3,9 @@ module ApplicationHelper
     {
       site: Settings.site.name,
       reverse: true,
-      title: Settings.site.name
+      title: Settings.site.name,
       description: Settings.site.description,
-      keywords: Settings.site.page_keywords,
+      # keywords: Settings.site.page_keywords,
       canonical: request.original_url,
       og: {
         title: :title,
