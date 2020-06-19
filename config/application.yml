@@ -1,0 +1,9 @@
+defaults: &defaults
+  site:
+    name: EngineerBlogsMap
+    description: 技術ブログの共有サイトです。おすすめブログの共有・検索や、レビューの投稿が可能です。
+    meta:
+      ogp:
+        app_id: Facebook App ID
+        type: article
+        image_path: /app/assets/images/twitter_card.png
