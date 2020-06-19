@@ -1,6 +1,6 @@
 defaults: &defaults
   site:
-    name: EngineerBlogsMap!
+    name: EngineerBlogs.Map!
     description: 技術ブログの共有サイトです。自分に合ったブログを見つけて効率的にインプットしましょう！またおすすめのブログや、ご自身のブログがあればぜひ紹介して下さい！
     meta:
       ogp:
