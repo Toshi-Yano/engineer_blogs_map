@@ -6,7 +6,7 @@ module ApplicationHelper
       description: Settings.site.description,
       canonical: request.original_url,
       og: {
-        title: Settings.site.title,
+        title: :site,
         type: Settings.site.meta.ogp.type,
         url: request.original_url,
         image: Settings.site.meta.ogp.image_path,
