@@ -2,12 +2,11 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: Settings.site.name,
-      reverse: true,
-      title: Settings.site.name,
+      title: Settings.site.title,
       description: Settings.site.description,
       canonical: request.original_url,
       og: {
-        title: :title,
+        title: Settings.site.title,
         type: Settings.site.meta.ogp.type,
         url: request.original_url,
         image: Settings.site.meta.ogp.image_path,
